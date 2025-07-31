@@ -5,3 +5,9 @@
 html {
   scroll-behavior: smooth;
 }
+.bg-montagne-blanche {
+  background-image: url("/white_montain.jpeg");
+}
+.dark .bg-montagne-blanche {
+  background-image: url("/black_montain.jpeg");
+}

@@ -1,11 +1,12 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+/* eslint-env node */
+/* eslint-disable no-undef */
+const daisyui = require("daisyui");
+
+module.exports = {
+  darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [require("daisyui")],
-  daisyui: {
-    themes: ["light", "dark"],
-  },
+  safelist: ["bg-[url('/white_montain.jpeg')]", "dark:bg-[url('/black_montain.jpeg')]"],
+  theme: { extend: {} },
+  plugins: [daisyui],
+  daisyui: {},
 };
