@@ -1,60 +1,75 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { TbHome, TbUser, TbBriefcase, TbCode, TbLayoutGrid } from "react-icons/tb";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import LanguageToggle from "../LanguageToggle/LanguageToggle";
 import styles from "./Navbar.module.css";
 
-const LINKS = ["about", "experience", "skills", "projects", "contact"];
+// chaque entrée du dock : id de section, icône, clé de libellé i18n
+const ITEMS = [
+  { id: "hero", key: "home", Icon: TbHome },
+  { id: "about", key: "about", Icon: TbUser },
+  { id: "experience", key: "experience", Icon: TbBriefcase },
+  { id: "skills", key: "skills", Icon: TbCode },
+  { id: "projects", key: "projects", Icon: TbLayoutGrid },
+];
 
 export default function Navbar() {
   const { t } = useTranslation();
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState("hero");
 
-  // ombre/fond plus marqués une fois qu'on a scrollé
+  // scroll-spy : met en surbrillance l'icône de la section visible
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      // déclenche le changement quand la section franchit le centre du viewport
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    ITEMS.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
-
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
-      <nav className={`container ${styles.nav}`} aria-label={t("a11y.mainNav")}>
-        <a href="#hero" className={styles.logo} onClick={closeMenu}>
-          <span className={styles.logoMark}>{"</>"}</span>
-          Camil<span className={styles.logoDot}>.</span>
-        </a>
+    <>
+      {/* logo flottant en haut à gauche */}
+      <a href="#hero" className={styles.logo} aria-label="Camil Saunier">
+        <span className={styles.logoMark}>{"{"}</span>
+        <span className={styles.logoName}>CS</span>
+        <span className={styles.logoMark}>{"}"}</span>
+      </a>
 
-        <ul className={`${styles.links} ${menuOpen ? styles.open : ""}`}>
-          {LINKS.map((id) => (
-            <li key={id}>
-              <a href={`#${id}`} onClick={closeMenu}>
-                {t(`nav.${id}`)}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className={styles.actions}>
-          <LanguageToggle />
-          <ThemeToggle />
-          <button
-            type="button"
-            className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ""}`}
-            aria-label={t("a11y.menu")}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((o) => !o)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
+      {/* dock de navigation flottant (liquid glass) */}
+      <nav className={styles.dock} aria-label={t("a11y.mainNav")}>
+        {ITEMS.map(({ id, key, Icon }) => {
+          const label = t(`nav.${key}`);
+          return (
+            <a
+              key={id}
+              href={`#${id}`}
+              className={`${styles.item} ${active === id ? styles.active : ""}`}
+              aria-label={label}
+              title={label}
+              aria-current={active === id ? "true" : undefined}
+            >
+              <Icon className={styles.icon} aria-hidden="true" />
+              <span className={styles.tooltip}>{label}</span>
+            </a>
+          );
+        })}
       </nav>
-    </header>
+
+      {/* réglages flottants en haut à droite */}
+      <div className={styles.utils}>
+        <LanguageToggle />
+        <ThemeToggle />
+      </div>
+    </>
   );
 }

@@ -17,6 +17,21 @@
   margin-bottom: 14px;
 }
 
+/* accolades accent autour du titre — reprend la DA du logo / favicon */
+.brace {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.brace:first-child {
+  margin-right: 0.3em;
+}
+
+.brace:last-child {
+  margin-left: 0.3em;
+}
+
 .subtitle {
   font-size: 1.05rem;
   color: var(--text-muted);

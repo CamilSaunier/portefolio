@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { TbPlus } from "react-icons/tb";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import Reveal from "../../components/Reveal/Reveal";
 import Lightbox from "../../components/Lightbox/Lightbox";
@@ -10,6 +11,7 @@ const PROJECTS = [
   {
     id: "one",
     logo: "/Semantikmatch_logo.png",
+    mono: true,
     private: true,
     shots: [
       { src: "/projects/Semantikmatch/Apply1.png", device: "desktop", area: "candidate" },
@@ -26,6 +28,7 @@ const PROJECTS = [
   {
     id: "two",
     logo: "/Moustache_Logo.png",
+    mono: true,
     private: true,
     shots: [{ src: null, device: "desktop" }],
   },
@@ -41,6 +44,8 @@ export default function Projects() {
   const { t } = useTranslation();
   // galerie active : { shots: [{src, caption}], title } | null
   const [gallery, setGallery] = useState(null);
+  // id de la carte dont le détail est déplié (null = tout fermé)
+  const [openId, setOpenId] = useState(null);
 
   const openGallery = (project) => {
     const title = t(`projects.items.${project.id}.title`);
@@ -71,17 +76,27 @@ export default function Projects() {
         <div className={styles.grid}>
           {PROJECTS.map((project, i) => {
             const tags = t(`projects.items.${project.id}.tags`, { returnObjects: true });
+            const details = t(`projects.items.${project.id}.details`, { returnObjects: true });
             const realShots = project.shots.filter((s) => s.src);
             const canPreview = realShots.length > 0;
+            const isOpen = openId === project.id;
+            // une autre carte est ouverte -> celle-ci passe en mode comprimé (allégé)
+            const isCompressed = openId !== null && !isOpen;
 
             return (
-              <Reveal key={project.id} className={styles.card} delay={i * 100}>
+              <Reveal
+                key={project.id}
+                className={`${styles.card} ${isOpen ? styles.cardOpen : ""} ${
+                  isCompressed ? styles.cardCompressed : ""
+                }`}
+                delay={i * 100}
+              >
                 <div className={styles.thumb}>
                   <img
                     src={project.logo}
                     alt={t(`projects.items.${project.id}.title`)}
                     loading="lazy"
-                    className={styles.logo}
+                    className={`${styles.logo} ${project.mono ? styles.logoMono : ""}`}
                   />
                   {project.private && (
                     <span className={styles.badge}>{t("projects.privateRepo")}</span>
@@ -91,6 +106,18 @@ export default function Projects() {
                       <span className={styles.liveDot} />
                       {t("projects.live")}
                     </span>
+                  )}
+                  {details && details.features && (
+                    <button
+                      type="button"
+                      className={`${styles.expand} ${isOpen ? styles.expandOpen : ""}`}
+                      onClick={() => setOpenId(isOpen ? null : project.id)}
+                      aria-expanded={isOpen}
+                      aria-label={t("projects.details")}
+                      title={t("projects.details")}
+                    >
+                      <TbPlus aria-hidden="true" />
+                    </button>
                   )}
                 </div>
 
@@ -129,6 +156,20 @@ export default function Projects() {
                       </a>
                     )}
                   </div>
+
+                  {/* panneau de détail des features (déplié par le bouton +) */}
+                  {details && details.features && (
+                    <div className={styles.detail} data-open={isOpen}>
+                      <div className={styles.detailInner}>
+                        {details.intro && <p className={styles.detailIntro}>{details.intro}</p>}
+                        <ul className={styles.detailList}>
+                          {details.features.map((f, idx) => (
+                            <li key={idx}>{f}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </Reveal>
             );

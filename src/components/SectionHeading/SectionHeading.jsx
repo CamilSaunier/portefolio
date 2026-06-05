@@ -6,7 +6,9 @@ export default function SectionHeading({ eyebrow, title, subtitle, titleId }) {
     <Reveal className={styles.wrap}>
       {eyebrow && <span className={styles.eyebrow}>{eyebrow}</span>}
       <h2 id={titleId} className={styles.title}>
+        <span className={styles.brace} aria-hidden="true">{"{"}</span>
         {title}
+        <span className={styles.brace} aria-hidden="true">{"}"}</span>
       </h2>
       {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
     </Reveal>

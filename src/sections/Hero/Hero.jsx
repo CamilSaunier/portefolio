@@ -1,12 +1,19 @@
 import { useTranslation } from "react-i18next";
 import Socials from "../../components/Socials/Socials";
 import { useTypewriter } from "../../hooks/useTypewriter";
+import { useTypewriterLoop } from "../../hooks/useTypewriterLoop";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
   const { t } = useTranslation();
   const role = t("hero.role");
-  const { output: typedRole } = useTypewriter(role);
+  const { output: typedRole, done: roleDone } = useTypewriter(role, { speed: 45 });
+
+  const taglinePrefix = t("hero.taglinePrefix");
+  const taglineWords = t("hero.taglineWords", { returnObjects: true });
+  const words = Array.isArray(taglineWords) ? taglineWords : [];
+  // la boucle ne démarre qu'une fois le titre entièrement tapé
+  const cycledWord = useTypewriterLoop(words, { start: roleDone });
 
   return (
     <section id="hero" className={styles.hero} aria-labelledby="hero-name">
@@ -23,17 +30,27 @@ export default function Hero() {
           <h2 className={styles.role} aria-label={role}>
             <span aria-hidden="true">
               {typedRole}
-              <span className={styles.cursor}>_</span>
+              {!roleDone && <span className={styles.cursor}>_</span>}
             </span>
           </h2>
-          <p className={styles.tagline}>{t("hero.tagline")}</p>
+          <p className={styles.tagline}>
+            <span aria-hidden="true">
+              {taglinePrefix}
+              <span className={styles.taglineWord}>
+                {cycledWord}
+                {roleDone && <span className={styles.cursor}>_</span>}
+              </span>
+            </span>
+            {/* version stable et complète pour les lecteurs d'écran */}
+            <span className="sr-only">
+              {taglinePrefix}
+              {words[0]}
+            </span>
+          </p>
 
           <div className={styles.cta}>
             <a href="#projects" className={styles.primary}>
               {t("hero.ctaProjects")}
-            </a>
-            <a href="#contact" className={styles.secondary}>
-              {t("hero.ctaContact")}
             </a>
           </div>
 

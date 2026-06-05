@@ -1,8 +1,5 @@
-.grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 48px;
-  align-items: start;
+.text {
+  max-width: 760px;
 }
 
 .text p {
@@ -15,50 +12,68 @@
   margin-bottom: 0;
 }
 
-.facts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+/* ---- Boutons de téléchargement de CV ---- */
+.cv {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
 }
 
-.fact {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 20px;
+.cvBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 22px;
   border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, background var(--transition),
+    border-color var(--transition), color var(--transition);
+}
+
+.cvBtn svg {
+  font-size: 18px;
+}
+
+/* CV de la langue active : bouton plein accent */
+.cvPrimary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.cvPrimary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* autre CV : bouton contour */
+.cvSecondary {
   border: 1px solid var(--border);
   background: var(--surface);
-  transition: border-color var(--transition), transform 0.2s ease;
-}
-
-.fact:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
-}
-
-.factLabel {
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-}
-
-.factValue {
-  font-size: 1.05rem;
-  font-weight: 600;
   color: var(--text);
 }
 
-@media (max-width: 860px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
+.cvSecondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
 }
 
-@media (max-width: 420px) {
-  .facts {
-    grid-template-columns: 1fr;
-  }
+/* CV pas encore disponible */
+.cvDisabled {
+  border: 1px dashed var(--border);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.cvSoon {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--accent-soft);
+  color: var(--accent);
 }

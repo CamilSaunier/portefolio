@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Camil Saunier — CV</title>
+    <style>
+      /* ATS-safe : single column, real text, no images/columns/tables.
+         Brand expressed via accent colour + typography only. */
+      @page { size: A4; margin: 13mm 15mm; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #1f1f29;
+        font-size: 10.2pt;
+        line-height: 1.42;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      :root { --accent: #4f46e5; --muted: #5c5c69; --line: #e4e4ee; }
+
+      /* En-tête */
+      .brand {
+        font-family: "Courier New", monospace;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 11pt;
+        letter-spacing: 1px;
+        margin-bottom: 2px;
+      }
+      h1 {
+        font-size: 23pt;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        line-height: 1.05;
+      }
+      .role { color: var(--accent); font-size: 12pt; font-weight: 600; margin: 2px 0 8px; }
+      .contact { font-size: 9.2pt; color: var(--muted); margin-bottom: 2px; }
+      .contact a { color: var(--muted); text-decoration: none; }
+      .elig { font-size: 9pt; color: var(--accent); font-weight: 600; margin-top: 3px; }
+      header {
+        background: rgba(79, 70, 229, 0.05);
+        border-left: 4px solid var(--accent);
+        border-radius: 0 10px 10px 0;
+        padding: 14px 16px;
+        margin-bottom: 14px;
+      }
+
+      /* Sections (intitulés standard pour la détection ATS) */
+      h2 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 10.5pt;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: var(--accent);
+        border-bottom: 1.5px solid rgba(79, 70, 229, 0.18);
+        padding-bottom: 4px;
+        margin: 14px 0 8px;
+      }
+      /* puce carrée décorative (forme vide -> invisible aux ATS) */
+      h2::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        background: var(--accent);
+        flex-shrink: 0;
+      }
+
+      .summary { font-size: 9.8pt; text-align: justify; }
+
+      /* Compétences : une ligne par catégorie (parsing ATS optimal) */
+      .skill { margin-bottom: 4px; font-size: 9.6pt; }
+      .skill b { color: #1f1f29; }
+
+      /* Expérience */
+      .job { margin-bottom: 11px; break-inside: avoid; }
+      .jhead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+      .jtitle { font-weight: 700; font-size: 10.6pt; }
+      .jdate { font-size: 8.6pt; color: var(--muted); white-space: nowrap; }
+      .jcomp { color: var(--accent); font-weight: 600; font-size: 9.6pt; margin: 1px 0 4px; }
+      ul { list-style: none; }
+      li { position: relative; padding-left: 13px; font-size: 9.5pt; margin-bottom: 2.5px; }
+      li::before {
+        content: "•";
+        position: absolute;
+        left: 1px;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      /* Formation */
+      .edu { margin-bottom: 7px; break-inside: avoid; }
+      .edu .jcomp { margin-bottom: 0; }
+      .edu .sub { font-size: 9pt; color: var(--muted); }
+
+      .inline { font-size: 9.5pt; }
+      .inline b { color: #1f1f29; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">{ CS }</div>
+      <h1>Camil Saunier</h1>
+      <div class="role">Full Stack Developer — React &amp; Node.js</div>
+      <div class="contact">
+        camilsaunier@gmail.com &nbsp;·&nbsp; +33 6 10 60 52 05 &nbsp;·&nbsp; France &nbsp;·&nbsp; relocating to New Zealand / Australia
+      </div>
+      <div class="contact">
+        <a href="https://www.linkedin.com/in/camil-saunier-770078167">linkedin.com/in/camil-saunier-770078167</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/CamilSaunier">github.com/CamilSaunier</a>
+      </div>
+      <div class="elig">Eligible: AEWV (NZ) · Visa 482 (AU)</div>
+    </header>
+
+    <h2>Professional Summary</h2>
+    <p class="summary">
+      Career-changer with a strong technical foundation, combining a newly acquired Full Stack Development
+      qualification (React, Node.js, TypeScript, Docker) with 5+ years of professional experience in
+      high-complexity field operations. My background in fibre network infrastructure — where precision,
+      autonomous problem solving and zero-error tolerance are critical — translates directly into disciplined,
+      production-minded development. Completed two back-to-back internships delivering real-world features.
+      Looking to join a team in New Zealand or Australia where I can grow fast and contribute meaningfully
+      from day one.
+    </p>
+
+    <h2>Skills</h2>
+    <div class="skill"><b>Front-end:</b> React.js, TypeScript, HTML5/CSS3, UI/UX implementation, Data visualisation (charts), Responsive design, Component architecture</div>
+    <div class="skill"><b>Back-end &amp; Infra:</b> Node.js/Express, TSOA (type-safe APIs), BullMQ &amp; Redis, Docker &amp; containerisation, PostgreSQL/Prisma, RESTful API design, Agile/Scrum</div>
+    <div class="skill"><b>Transferable:</b> Technical problem solving, autonomous work ethic, client-facing communication, digital reporting &amp; documentation, project coordination, adaptability &amp; resilience</div>
+
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="jhead">
+        <span class="jtitle">Full Stack Developer — Internship</span>
+        <span class="jdate">Dec 2025 – Present</span>
+      </div>
+      <div class="jcomp">Semantik Match — France</div>
+      <ul>
+        <li>Led a complete UI/UX overhaul of the candidate platform, improving visual consistency and navigation flow.</li>
+        <li>Designed and built an Autofill profile feature, reducing friction and improving completion rates.</li>
+        <li>Implemented an AI-driven pre-filtering system to refine candidate search results and matching accuracy.</li>
+        <li>Built and maintained RESTful APIs with Node.js and TSOA (full type safety, auto-generated docs).</li>
+        <li>Managed asynchronous background jobs with BullMQ and Redis; consistent environments via Docker.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jhead">
+        <span class="jtitle">Full Stack Developer — Internship</span>
+        <span class="jdate">Jun 2025 – Jul 2025</span>
+      </div>
+      <div class="jcomp">Moustache Bikes — France</div>
+      <ul>
+        <li>Contributed to a full graphical and functional overhaul of the retailer portal, making business data far more accessible.</li>
+        <li>Built dynamic React interfaces for dealer networks, inventory levels and real-time performance charts.</li>
+        <li>Collaborated with the digital team to align internal tools with brand guidelines and UX requirements.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jhead">
+        <span class="jtitle">Senior Fibre Field Technician</span>
+        <span class="jdate">Jun 2020 – Dec 2025 · 5.5 years</span>
+      </div>
+      <div class="jcomp">ERT Technologies / Altice — France</div>
+      <ul>
+        <li>Independently managed the full fault-to-fix cycle for critical FTTB/MDU and B2B fibre accounts — a zero-tolerance mindset directly applicable to production environments.</li>
+        <li>Managed 24/7 emergency response and ran full diagnostic cycles on FTTH/FTTB infrastructure.</li>
+        <li>Onboarded and mentored junior technicians on complex installation and maintenance protocols.</li>
+        <li>Digital reporting &amp; signal testing (field strength meters, spectrum analyzers); a clean documentation habit carried into development.</li>
+        <li>Completed Full Stack Developer retraining (Pro-A programme) in parallel from 2024.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jhead">
+        <span class="jtitle">Earlier experience</span>
+        <span class="jdate">2014 – 2020</span>
+      </div>
+      <div class="jcomp">Australia &amp; France</div>
+      <ul>
+        <li><b>Agricultural Worker</b> — NQ Fresh &amp; Groves Grown Tropical Fruits, Queensland, Australia (2018–2020): 2 years working entirely in English in a multicultural environment; rapid adaptability to a new country.</li>
+        <li><b>Regional Development Officer</b> — Grand Est Taekwondo, France (2014–2017): managed multi-stakeholder projects, secured public funding, coordinated 4 regional clubs.</li>
+        <li><b>Surveillance Assistant</b> — Louis Lapicque High School, France (2017–2018): communication, conflict resolution and student welfare.</li>
+      </ul>
+    </div>
+
+    <h2>Education &amp; Qualifications</h2>
+    <div class="edu">
+      <div class="jhead">
+        <span class="jtitle">Professional Title — Web &amp; Mobile Web Developer (DWWM)</span>
+        <span class="jdate">2025</span>
+      </div>
+      <div class="sub">O'Clock — professional retraining (Pro-A) · NZ Level 5 equivalent</div>
+    </div>
+    <div class="edu">
+      <div class="jhead">
+        <span class="jtitle">DEJEPS — Project Coordination &amp; Community Development</span>
+        <span class="jdate">2016</span>
+      </div>
+      <div class="sub">FFTDA (French Taekwondo Federation) · NZ Level 5 equivalent</div>
+    </div>
+    <div class="edu">
+      <div class="jhead">
+        <span class="jtitle">French Baccalaureate</span>
+        <span class="jdate">2011</span>
+      </div>
+      <div class="sub">Lycée Louis Lapicque</div>
+    </div>
+
+    <h2>Languages</h2>
+    <div class="inline"><b>French</b> — Native &nbsp;·&nbsp; <b>English</b> — B2 Professional Working Proficiency (lived &amp; worked in Australia, 2018–2020)</div>
+
+    <h2>Additional Information</h2>
+    <div class="inline">
+      Full manual &amp; automatic driving licence (since 2012) &nbsp;·&nbsp; Available to relocate immediately
+      &nbsp;·&nbsp; Eligible for AEWV (NZ) and Visa 482 (AU) sponsorship &nbsp;·&nbsp; Reference letter available
+      (ERT Technologies HR)
+    </div>
+
+    <h2>Interests</h2>
+    <div class="inline">Running (trail &amp; endurance) &nbsp;·&nbsp; Taekwondo (regional development level) &nbsp;·&nbsp; Acoustic guitar</div>
+  </body>
+</html>

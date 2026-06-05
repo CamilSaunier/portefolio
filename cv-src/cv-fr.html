@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Camil Saunier — CV</title>
+    <style>
+      /* ATS-safe : une seule colonne, texte réel, pas d'image/colonnes/tableau.
+         Identité via couleur accent + typographie. */
+      @page { size: A4; margin: 13mm 15mm; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #1f1f29;
+        font-size: 10.2pt;
+        line-height: 1.42;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      :root { --accent: #4f46e5; --muted: #5c5c69; --line: #e4e4ee; }
+
+      .brand {
+        font-family: "Courier New", monospace;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 11pt;
+        letter-spacing: 1px;
+        margin-bottom: 2px;
+      }
+      h1 { font-size: 23pt; font-weight: 800; letter-spacing: -0.5px; line-height: 1.05; }
+      .role { color: var(--accent); font-size: 12pt; font-weight: 600; margin: 2px 0 8px; }
+      .contact { font-size: 9.2pt; color: var(--muted); margin-bottom: 2px; }
+      .contact a { color: var(--muted); text-decoration: none; }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        background: rgba(79, 70, 229, 0.05);
+        border-left: 4px solid var(--accent);
+        border-radius: 0 10px 10px 0;
+        padding: 13px 16px;
+        margin-bottom: 14px;
+      }
+      .photo {
+        flex-shrink: 0;
+        width: 30mm;
+        height: 30mm;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #eef0f5;
+        border: 2px solid var(--accent);
+      }
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+
+      h2 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 10.5pt;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: var(--accent);
+        border-bottom: 1.5px solid rgba(79, 70, 229, 0.18);
+        padding-bottom: 4px;
+        margin: 14px 0 8px;
+      }
+      h2::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        background: var(--accent);
+        flex-shrink: 0;
+      }
+
+      .summary { font-size: 9.8pt; text-align: justify; }
+      .skill { margin-bottom: 4px; font-size: 9.6pt; }
+      .skill b { color: #1f1f29; }
+
+      .job { margin-bottom: 11px; break-inside: avoid; }
+      .jhead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+      .jtitle { font-weight: 700; font-size: 10.6pt; }
+      .jdate { font-size: 8.6pt; color: var(--muted); white-space: nowrap; }
+      .jcomp { color: var(--accent); font-weight: 600; font-size: 9.6pt; margin: 1px 0 4px; }
+      ul { list-style: none; }
+      li { position: relative; padding-left: 13px; font-size: 9.5pt; margin-bottom: 2.5px; }
+      li::before { content: "•"; position: absolute; left: 1px; color: var(--accent); font-weight: 700; }
+
+      .edu { margin-bottom: 7px; break-inside: avoid; }
+      .edu .sub { font-size: 9pt; color: var(--muted); }
+      .inline { font-size: 9.5pt; }
+      .inline b { color: #1f1f29; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="htext">
+        <div class="brand">{ CS }</div>
+        <h1>Camil Saunier</h1>
+        <div class="role">Développeur Full Stack — React &amp; Node.js</div>
+        <div class="contact">
+          camilsaunier@gmail.com &nbsp;·&nbsp; +33 6 10 60 52 05 &nbsp;·&nbsp; Grand Est, France
+        </div>
+        <div class="contact">
+          <a href="https://www.linkedin.com/in/camil-saunier-770078167">linkedin.com/in/camil-saunier-770078167</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/CamilSaunier">github.com/CamilSaunier</a>
+        </div>
+      </div>
+      <div class="photo">
+        <img src="../public/PHOTO_PROFIL-removebg-preview.png" alt="Camil Saunier" />
+      </div>
+    </header>
+
+    <h2>Profil</h2>
+    <p class="summary">
+      Développeur full stack issu d'une reconversion réussie, j'allie un titre DWWM récemment obtenu
+      (React, Node.js, TypeScript, Docker) à plus de 5 ans d'expérience terrain à forte complexité. Mon
+      passé dans l'infrastructure réseau fibre — où la précision, la résolution de problèmes en autonomie
+      et la tolérance zéro à l'erreur sont critiques — se traduit directement par un développement
+      rigoureux et orienté production. Deux stages consécutifs m'ont permis de livrer des fonctionnalités
+      concrètes. Je recherche une équipe pour progresser vite et contribuer dès le premier jour.
+    </p>
+
+    <h2>Compétences</h2>
+    <div class="skill"><b>Front-end :</b> React.js, TypeScript, HTML5/CSS3, intégration UI/UX, dataviz (graphiques), responsive design, architecture de composants</div>
+    <div class="skill"><b>Back-end &amp; Infra :</b> Node.js/Express, TSOA (API typées), BullMQ &amp; Redis, Docker &amp; conteneurisation, PostgreSQL/Prisma, conception d'API REST, Agile/Scrum</div>
+    <div class="skill"><b>Transversales :</b> résolution de problèmes techniques, autonomie, communication client, reporting &amp; documentation, coordination de projet, adaptabilité</div>
+
+    <h2>Expérience</h2>
+
+    <div class="job">
+      <div class="jhead">
+        <span class="jtitle">Développeur Full Stack — Stage</span>
+        <span class="jdate">Déc. 2025 – Présent</span>
+      </div>
+      <div class="jcomp">Semantik Match — France</div>
+      <ul>
+        <li>Refonte UI/UX complète de la plateforme de candidatures (cohérence visuelle, parcours de navigation).</li>
+        <li>Conception d'une fonctionnalité d'autofill de profil réduisant la friction et améliorant la complétion.</li>
+        <li>Mise en place d'un pré-filtrage des candidatures piloté par IA, améliorant la pertinence du matching.</li>
+        <li>APIs REST développées et maintenues avec Node.js et TSOA (typage complet, documentation auto-générée).</li>
+        <li>Jobs asynchrones gérés via BullMQ et Redis ; environnements homogènes avec Docker.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jhead">
+        <span class="jtitle">Développeur Full Stack — Stage</span>
+        <span class="jdate">Juin 2025 – Juil. 2025</span>
+      </div>
+      <div class="jcomp">Moustache Bikes — France</div>
+      <ul>
+        <li>Contribution à la refonte graphique et fonctionnelle du portail revendeurs, rendant les données métier bien plus accessibles.</li>
+        <li>Interfaces React dynamiques : réseau de revendeurs, niveaux de stock et graphiques de performance en temps réel.</li>
+        <li>Collaboration avec l'équipe digitale pour aligner les outils internes sur la charte et les exigences UX de la marque.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jhead">
+        <span class="jtitle">Technicien d'exploitation fibre — Senior</span>
+        <span class="jdate">Juin 2020 – Déc. 2025 · 5,5 ans</span>
+      </div>
+      <div class="jcomp">ERT Technologies / Altice — France</div>
+      <ul>
+        <li>Gestion autonome du cycle complet panne → résolution sur comptes critiques FTTB/MDU et B2B — état d'esprit zéro défaut directement transposable en production.</li>
+        <li>Gestion des astreintes 24/7 et cycles de diagnostic complets sur infrastructure FTTH/FTTB.</li>
+        <li>Accompagnement et formation de techniciens juniors sur des protocoles d'installation et de maintenance complexes.</li>
+        <li>Reporting digital &amp; tests de signal (mesureurs de champ, analyseurs de spectre) ; rigueur documentaire transposée dans le développement.</li>
+        <li>Reconversion Développeur Full Stack (Pro-A) menée en parallèle dès 2024.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jhead">
+        <span class="jtitle">Expériences antérieures</span>
+        <span class="jdate">2014 – 2020</span>
+      </div>
+      <div class="jcomp">Australie &amp; France</div>
+      <ul>
+        <li><b>Ouvrier agricole</b> — NQ Fresh &amp; Groves Grown Tropical Fruits, Queensland, Australie (2018–2020) : 2 ans en environnement 100 % anglophone et multiculturel ; adaptation rapide à un nouveau pays.</li>
+        <li><b>Agent de développement régional</b> — Grand Est Taekwondo, France (2014–2017) : pilotage de projets multi-acteurs, obtention de financements publics, coordination de 4 clubs.</li>
+        <li><b>Assistant d'éducation</b> — Lycée Louis Lapicque, France (2017–2018) : communication, gestion de conflits, encadrement des élèves.</li>
+      </ul>
+    </div>
+
+    <h2>Formation</h2>
+    <div class="edu">
+      <div class="jhead">
+        <span class="jtitle">Titre Professionnel — Développeur Web &amp; Web Mobile (DWWM)</span>
+        <span class="jdate">2025</span>
+      </div>
+      <div class="sub">O'clock — reconversion (Pro-A) · RNCP niveau 5 (Bac+2)</div>
+    </div>
+    <div class="edu">
+      <div class="jhead">
+        <span class="jtitle">DEJEPS — Coordination de projet &amp; développement</span>
+        <span class="jdate">2016</span>
+      </div>
+      <div class="sub">FFTDA (Fédération Française de Taekwondo)</div>
+    </div>
+    <div class="edu">
+      <div class="jhead">
+        <span class="jtitle">Baccalauréat</span>
+        <span class="jdate">2011</span>
+      </div>
+      <div class="sub">Lycée Louis Lapicque</div>
+    </div>
+
+    <h2>Langues</h2>
+    <div class="inline"><b>Français</b> — langue maternelle &nbsp;·&nbsp; <b>Anglais</b> — B2 professionnel (2 ans vécus et travaillés en Australie, 2018–2020)</div>
+
+    <h2>Informations complémentaires</h2>
+    <div class="inline">
+      Permis B (manuel &amp; automatique, depuis 2012) &nbsp;·&nbsp; Disponible et mobile immédiatement
+      &nbsp;·&nbsp; Lettre de recommandation disponible (RH ERT Technologies)
+    </div>
+
+    <h2>Centres d'intérêt</h2>
+    <div class="inline">Course à pied (trail &amp; endurance) &nbsp;·&nbsp; Taekwondo (niveau développement régional) &nbsp;·&nbsp; Guitare acoustique</div>
+  </body>
+</html>

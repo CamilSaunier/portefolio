@@ -1,21 +1,56 @@
 import { useTranslation } from "react-i18next";
+import {
+  SiReact,
+  SiTypescript,
+  SiJavascript,
+  SiHtml5,
+  SiCss,
+  SiNodedotjs,
+  SiExpress,
+  SiPrisma,
+  SiPostgresql,
+  SiRedis,
+  SiDocker,
+  SiGit,
+  SiGithub,
+  SiVite,
+} from "react-icons/si";
+import { TbBrandVscode } from "react-icons/tb";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import Reveal from "../../components/Reveal/Reveal";
 import styles from "./Skills.module.css";
 
-// Les noms de technologies ne sont pas traduits : seule la clé de catégorie l'est.
+// Chaque techno = un nom + son composant icône (rendu en couleur du thème).
 const GROUPS = [
   {
     category: "frontend",
-    items: ["React", "TypeScript", "JavaScript", "HTML5 & CSS3", "Responsive Design", "Data Visualisation"],
+    items: [
+      { name: "React", Icon: SiReact },
+      { name: "TypeScript", Icon: SiTypescript },
+      { name: "JavaScript", Icon: SiJavascript },
+      { name: "HTML5", Icon: SiHtml5 },
+      { name: "CSS3", Icon: SiCss },
+    ],
   },
   {
     category: "backend",
-    items: ["Node.js", "Express", "tsoa", "Prisma", "PostgreSQL", "Redis & BullMQ", "Docker", "API REST"],
+    items: [
+      { name: "Node.js", Icon: SiNodedotjs },
+      { name: "Express", Icon: SiExpress },
+      { name: "Prisma", Icon: SiPrisma },
+      { name: "PostgreSQL", Icon: SiPostgresql },
+      { name: "Redis", Icon: SiRedis },
+      { name: "Docker", Icon: SiDocker },
+    ],
   },
   {
     category: "tools",
-    items: ["Git & GitHub", "Agile / Scrum", "Vite", "VS Code"],
+    items: [
+      { name: "Git", Icon: SiGit },
+      { name: "GitHub", Icon: SiGithub },
+      { name: "Vite", Icon: SiVite },
+      { name: "VS Code", Icon: TbBrandVscode },
+    ],
   },
 ];
 
@@ -36,10 +71,11 @@ export default function Skills() {
           {GROUPS.map((group, i) => (
             <Reveal key={group.category} className={styles.card} delay={i * 100}>
               <h3 className={styles.cardTitle}>{t(`skills.categories.${group.category}`)}</h3>
-              <ul className={styles.tags}>
-                {group.items.map((item) => (
-                  <li key={item} className={styles.tag}>
-                    {item}
+              <ul className={styles.items}>
+                {group.items.map(({ name, Icon }) => (
+                  <li key={name} className={styles.item}>
+                    <Icon className={styles.icon} aria-hidden="true" />
+                    <span className={styles.name}>{name}</span>
                   </li>
                 ))}
               </ul>

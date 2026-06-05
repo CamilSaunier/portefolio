@@ -1,17 +1,22 @@
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
+  /* flex: 1 1 0 -> toutes les cartes partagent la largeur à parts égales ;
+     flex-grow s'anime, d'où la compression fluide quand une carte s'ouvre */
+  flex: 1 1 0;
+  min-width: 0;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--surface);
   overflow: hidden;
-  transition: border-color var(--transition), transform 0.25s ease, box-shadow var(--transition);
+  transition: flex-grow 0.45s cubic-bezier(0.4, 0, 0.2, 1), border-color var(--transition),
+    transform 0.25s ease, box-shadow var(--transition);
 }
 
 .card:hover {
@@ -20,12 +25,51 @@
   box-shadow: 0 18px 40px var(--shadow);
 }
 
-/* Vignette : logo de l'entreprise sur plaque claire fixe (visible dans les 2 thèmes) */
+/* Carte ouverte : grandit en largeur (les fermées se compriment sur la ligne).
+   On reste en COLONNE : seule la largeur + la hauteur du détail s'animent,
+   pas de bascule de layout -> mouvement unifié. */
+.cardOpen {
+  flex-grow: 3.4;
+  border-color: var(--accent);
+}
+
+.cardOpen,
+.cardOpen:hover {
+  transform: none;
+}
+
+/* Carte comprimée (une autre est ouverte) : logo + titre seulement,
+   et pas d'étirement vertical (align-self) pour ne pas gonfler la ligne. */
+.cardCompressed {
+  align-self: flex-start;
+}
+
+.cardCompressed .desc,
+.cardCompressed .tags,
+.cardCompressed .actions {
+  display: none;
+}
+
+.cardCompressed .title {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.cardCompressed .body {
+  padding: 16px;
+}
+
+/* Vignette : hauteur FIXE (pas d'aspect-ratio) -> quand la carte change de
+   largeur, le logo ne saute pas en hauteur. Plaque claire/sombre selon thème. */
 .thumb {
   position: relative;
-  aspect-ratio: 16 / 10;
+  height: 150px;
   overflow: hidden;
   background: linear-gradient(135deg, #ffffff, #eef0f5);
+}
+
+:global([data-theme="dark"]) .thumb {
+  background: linear-gradient(135deg, #20202b, #14141c);
 }
 
 .logo {
@@ -34,13 +78,22 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 13%;
+  /* padding fixe (pas en %) : un % serait calculé sur la largeur et écraserait
+     le logo en hauteur quand la carte s'élargit à l'ouverture */
+  padding: 24px;
+}
+
+/* logos à fond blanc (Semantik, Moustache) : en thème sombre, on inverse
+   (fond blanc -> sombre, logo noir -> blanc) et on fond le noir via "screen" */
+:global([data-theme="dark"]) .logoMono {
+  filter: invert(1);
+  mix-blend-mode: screen;
 }
 
 .badge {
   position: absolute;
   top: 12px;
-  right: 12px;
+  left: 12px;
   z-index: 2;
   padding: 5px 12px;
   border-radius: 999px;
@@ -122,6 +175,44 @@
   margin-top: 18px;
 }
 
+/* bouton + en coin haut-droit de la vignette (déplie le détail) */
+.expand {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.3s ease, background var(--transition), border-color var(--transition),
+    color var(--transition);
+}
+
+.expand svg {
+  width: 20px;
+  height: 20px;
+}
+
+.expand:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+/* le + pivote en × quand le détail est ouvert */
+.expandOpen {
+  transform: rotate(45deg);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
 /* bouton « Voir les aperçus » */
 .preview {
   display: inline-flex;
@@ -175,19 +266,92 @@
   height: 16px;
 }
 
+/* panneau de détail des features (accordéon) */
+.detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  /* MÊME durée et courbe que le flex-grow de la carte -> largeur et hauteur
+     s'animent ensemble, pour un agrandissement unifié (pas de "bas puis côté") */
+  transition: grid-template-rows 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.detail[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.detailInner {
+  overflow: hidden;
+}
+
+/* le contenu apparaît en fondu, synchronisé (pas de mouvement directionnel) */
+.cardOpen .detailInner {
+  animation: detail-fade 0.45s ease both;
+}
+
+@keyframes detail-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.detailIntro {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.detailList {
+  list-style: none;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.detailList li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.detailList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
 .visit:hover {
   color: var(--accent-hover);
   gap: 10px;
 }
 
-@media (max-width: 960px) {
+/* Tablette : 2 cartes par ligne ; une carte ouverte prend toute la largeur */
+@media (max-width: 900px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    flex-wrap: wrap;
+  }
+  .card {
+    flex: 1 1 calc(50% - 12px);
+  }
+  .cardOpen {
+    flex: 1 1 100%;
   }
 }
 
-@media (max-width: 620px) {
-  .grid {
-    grid-template-columns: 1fr;
+/* Mobile : une carte par ligne */
+@media (max-width: 600px) {
+  .card {
+    flex: 1 1 100%;
   }
 }

@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Home",
     "about": "About",
     "experience": "Experience",
     "skills": "Skills",
@@ -7,11 +8,12 @@
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hi, I'm",
+    "greeting": "Hello there ! I'm",
     "name": "Camil Saunier",
     "role": "Full Stack Developer",
-    "tagline": "With the right tools and the right people, anything can be learned.",
-    "ctaProjects": "View my projects",
+    "taglinePrefix": "With the right tools and the right people, anything ",
+    "taglineWords": ["can be learned", "can be built", "can be solved", "can be fixed", "can be created"],
+    "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
     "scroll": "Scroll down",
     "available": "Open to hiring"
@@ -21,6 +23,9 @@
     "lead": "Full stack developer and career-changer, driven by curiosity and a love of teamwork.",
     "p1": "Before code, I spent nearly 6 years as a field operations technician on FTTH/FTTB fibre networks — fault-fixing, major-outage response and 24/7 on-call — in a world where precision, autonomy and a zero-error mindset are the norm. Before that, two years working in Australia and three years in the non-profit sector (earning a DEJEPS diploma in parallel) taught me to adapt fast and collaborate with very diverse profiles.",
     "p2": "In 2024-2025 I retrained as a Web and Mobile Web Developer (DWWM certification), then completed two back-to-back internships delivering real-world features. I love working with others, learning and growing — and I'm now looking for a team where I can put that energy into ambitious projects.",
+    "cvFr": "French CV",
+    "cvEn": "English CV",
+    "cvSoon": "soon",
     "facts": {
       "diploma": "Certification",
       "diplomaValue": "DWWM · 2025",
@@ -78,6 +83,7 @@
     "privateRepo": "Private repository",
     "live": "Live site",
     "visit": "Visit the site",
+    "details": "Details",
     "previews": "View previews",
     "hidePreviews": "Hide previews",
     "comingSoon": "Screenshot coming soon",
@@ -95,17 +101,42 @@
       "one": {
         "title": "Semantik Match Platform",
         "description": "UI/UX overhaul of the candidate platform, a profile autofill feature and AI-driven candidate pre-filtering. Type-safe Node.js/TSOA APIs and BullMQ/Redis job queues.",
-        "tags": ["React", "Node.js", "TSOA", "AI"]
+        "tags": ["React", "Node.js", "TSOA", "AI"],
+        "details": {
+          "intro": "Internship at Semantik, a SaaS recruitment and admissions platform for top schools (HEC Paris, Oxford SBS). Several full-stack features built in React, TypeScript, Node.js and PostgreSQL.",
+          "features": [
+            "Complete visual overhaul of the candidate application.",
+            "Form autofill system populated from the candidate profile.",
+            "Automatic candidate pre-filtering engine.",
+            "End-to-end interview booking feature integrated with Google Calendar: slot generation, real-time sync via webhooks and notification handling."
+          ]
+        }
       },
       "two": {
         "title": "Moustache Bikes Internal Portal",
         "description": "Internal management tool (customers, stores, sellers, products) rebuilt in React, with dashboards and real-time statistics for dealer-network managers.",
-        "tags": ["React", "TypeScript", "Data Viz"]
+        "tags": ["React", "TypeScript", "Data Viz"],
+        "details": {
+          "intro": "Internship at Moustache Bikes, a premium e-bike manufacturer. Rebuilt an internal dealer-network management tool in React and TypeScript on top of an existing back-end.",
+          "features": [
+            "Complete front-end rebuild of the internal tool (customers, sellers, stores, products).",
+            "Dashboards and real-time statistics charts for network managers.",
+            "Careful integration following the brand's guidelines and UX standards."
+          ]
+        }
       },
       "three": {
         "title": "MS Climatisations",
         "description": "Showcase website built for an air-conditioning and refrigeration company (HVAC technician) operating in the Vosges and Meurthe-et-Moselle regions of France. Services presentation, branding and local SEO.",
-        "tags": ["React", "Responsive", "Local SEO"]
+        "tags": ["React", "Responsive", "Local SEO"],
+        "details": {
+          "intro": "Showcase website for an air-conditioning and refrigeration company operating in the Vosges (88) and Meurthe-et-Moselle (54) areas of France.",
+          "features": [
+            "Clear presentation of the services and the company.",
+            "Responsive design with consistent branding.",
+            "Local SEO optimisation for regional visibility."
+          ]
+        }
       }
     }
   },

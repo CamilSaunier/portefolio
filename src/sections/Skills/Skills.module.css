@@ -25,24 +25,46 @@
   border-bottom: 1px solid var(--border);
 }
 
-.tags {
+.items {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
-.tag {
-  padding: 7px 14px;
-  border-radius: 999px;
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--text);
+/* tuile logo + nom */
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 84px;
+  padding: 14px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: border-color var(--transition), transform 0.15s ease, background var(--transition);
+}
+
+.item:hover {
+  border-color: var(--accent);
   background: var(--accent-soft);
-  transition: transform 0.15s ease;
+  transform: translateY(-3px);
 }
 
-.tag:hover {
-  transform: translateY(-2px);
+/* le logo prend la couleur du texte (s'adapte au thème), accent au survol */
+.icon {
+  font-size: 30px;
+  color: var(--text);
+  transition: color var(--transition);
+}
+
+.item:hover .icon {
+  color: var(--accent);
+}
+
+.name {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
 }
 
 @media (max-width: 860px) {

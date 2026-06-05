@@ -19,6 +19,11 @@
   --shadow: rgba(24, 24, 27, 0.08);
   --shadow-strong: rgba(24, 24, 27, 0.14);
 
+  /* effet "liquid glass" — thème clair */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+
   /* Typographie */
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", "SFMono-Regular", Menlo, monospace;
@@ -45,6 +50,11 @@
   --accent-soft: rgba(129, 140, 248, 0.16);
   --shadow: rgba(0, 0, 0, 0.4);
   --shadow-strong: rgba(0, 0, 0, 0.6);
+
+  /* effet "liquid glass" — thème sombre */
+  --glass-bg: rgba(22, 22, 30, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-highlight: rgba(255, 255, 255, 0.14);
 }
 
 /* ============================================================

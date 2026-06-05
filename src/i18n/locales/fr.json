@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Accueil",
     "about": "À propos",
     "experience": "Parcours",
     "skills": "Compétences",
@@ -7,11 +8,12 @@
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Bonjour, je suis",
+    "greeting": "Salut ! moi c'est",
     "name": "Camil Saunier",
     "role": "Développeur Full Stack",
-    "tagline": "Avec les bons outils et les bonnes personnes, tout s'apprend.",
-    "ctaProjects": "Voir mes projets",
+    "taglinePrefix": "Avec les bons outils et les bonnes personnes, tout ",
+    "taglineWords": ["s'apprend", "se construit", "se résout", "se répare", "se crée"],
+    "ctaProjects": "Les projets",
     "ctaContact": "Me contacter",
     "scroll": "Découvrir",
     "available": "Ouvert au recrutement"
@@ -21,6 +23,9 @@
     "lead": "Développeur full stack issu d'une reconversion, porté par la curiosité et le goût du travail d'équipe.",
     "p1": "Avant le code, j'ai passé près de 6 ans comme technicien d'exploitation sur des réseaux fibre FTTH/FTTB — dépannage, pannes générales et astreintes 24/7 — dans un univers où la rigueur, l'autonomie et la tolérance zéro à l'erreur sont la norme. Avant cela, deux ans de travail en Australie et trois ans dans le milieu associatif (DEJEPS en parallèle) m'ont appris à m'adapter vite et à collaborer avec des profils très variés.",
     "p2": "En 2024-2025, je me suis reconverti en obtenant le titre Développeur Web et Web Mobile (DWWM), puis j'ai enchaîné deux stages où j'ai livré des fonctionnalités concrètes. J'aime travailler avec les autres, apprendre et évoluer : je cherche aujourd'hui une équipe où mettre cette énergie au service de projets ambitieux.",
+    "cvFr": "CV en français",
+    "cvEn": "CV en anglais",
+    "cvSoon": "bientôt",
     "facts": {
       "diploma": "Diplôme",
       "diplomaValue": "Titre DWWM · 2025",
@@ -78,6 +83,7 @@
     "privateRepo": "Dépôt privé",
     "live": "Site en ligne",
     "visit": "Visiter le site",
+    "details": "Détails",
     "previews": "Voir les aperçus",
     "hidePreviews": "Masquer les aperçus",
     "comingSoon": "Capture à venir",
@@ -95,17 +101,42 @@
       "one": {
         "title": "Plateforme Semantik Match",
         "description": "Refonte UI/UX de la plateforme de candidatures, fonctionnalité d'autofill de profil et pré-filtrage des candidats par IA. APIs type-safe Node.js/TSOA et files de jobs BullMQ/Redis.",
-        "tags": ["React", "Node.js", "TSOA", "IA"]
+        "tags": ["React", "Node.js", "TSOA", "IA"],
+        "details": {
+          "intro": "Stage au sein de Semantik, plateforme SaaS de recrutement et d'admission pour les grandes écoles (HEC Paris, Oxford SBS). Plusieurs features full stack en React, TypeScript, Node.js et PostgreSQL.",
+          "features": [
+            "Refonte graphique complète de l'application candidat.",
+            "Système d'autofill des formulaires depuis le profil candidat.",
+            "Moteur de préfiltre automatique des candidatures.",
+            "Feature complète de réservation d'entretiens intégrée à Google Calendar : génération de créneaux, synchronisation temps réel via webhooks et gestion des notifications."
+          ]
+        }
       },
       "two": {
         "title": "Portail interne Moustache Bikes",
         "description": "Outil de gestion interne (clients, magasins, vendeurs, produits) refondu en React, avec tableaux de bord et statistiques temps réel pour les responsables du réseau de revendeurs.",
-        "tags": ["React", "TypeScript", "Data Viz"]
+        "tags": ["React", "TypeScript", "Data Viz"],
+        "details": {
+          "intro": "Stage chez Moustache Bikes, fabricant de vélos électriques premium. Refonte d'un outil interne de gestion du réseau de revendeurs, en React et TypeScript sur un back-end existant.",
+          "features": [
+            "Refonte complète du front de l'outil interne (clients, vendeurs, magasins, produits).",
+            "Tableaux de bord et graphiques de statistiques en temps réel pour les responsables réseau.",
+            "Intégration soignée dans le respect de la charte et des standards UX de la marque."
+          ]
+        }
       },
       "three": {
         "title": "MS Climatisations",
         "description": "Site vitrine réalisé pour une entreprise de climatisation et de réfrigération (frigoriste) intervenant dans les Vosges et la Meurthe-et-Moselle. Présentation des prestations, identité de marque et référencement local.",
-        "tags": ["React", "Responsive", "SEO local"]
+        "tags": ["React", "Responsive", "SEO local"],
+        "details": {
+          "intro": "Site vitrine pour une entreprise de climatisation et de réfrigération intervenant dans les Vosges (88) et la Meurthe-et-Moselle (54).",
+          "features": [
+            "Présentation claire des prestations et de l'entreprise.",
+            "Design responsive et identité de marque cohérente.",
+            "Optimisation du référencement local (SEO) pour la visibilité dans la région."
+          ]
+        }
       }
     }
   },
