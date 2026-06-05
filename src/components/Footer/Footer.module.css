@@ -1,0 +1,23 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding-block: 32px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.copy {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.built {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}

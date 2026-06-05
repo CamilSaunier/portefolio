@@ -1,0 +1,29 @@
+.socials {
+  display: inline-flex;
+  gap: 12px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  transition: color var(--transition), border-color var(--transition),
+    background var(--transition), transform 0.15s ease;
+}
+
+.link svg {
+  width: 22px;
+  height: 22px;
+}
+
+.link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}

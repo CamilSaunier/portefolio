@@ -1,0 +1,102 @@
+.wrap {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  /* le flou crée l'effet "lampe à lave" diffus */
+  filter: blur(80px);
+  /* indique au navigateur d'optimiser l'animation de transform */
+  will-change: transform;
+  opacity: 0.55;
+}
+
+/* En mode sombre, on adoucit un peu pour ne pas éblouir */
+[data-theme="dark"] .blob {
+  opacity: 0.4;
+}
+
+/* Trois taches de tailles/couleurs/trajectoires différentes.
+   Les couleurs dérivent de --accent (via color-mix) → s'adaptent au thème. */
+.blob1 {
+  width: 44vw;
+  height: 44vw;
+  max-width: 540px;
+  max-height: 540px;
+  left: 2%;
+  bottom: -20%;
+  background: color-mix(in srgb, var(--accent) 60%, transparent);
+  animation: rise1 22s ease-in-out infinite alternate;
+}
+
+.blob2 {
+  width: 36vw;
+  height: 36vw;
+  max-width: 440px;
+  max-height: 440px;
+  right: 4%;
+  bottom: -25%;
+  background: color-mix(in srgb, var(--accent) 38%, #22d3ee);
+  animation: rise2 28s ease-in-out infinite alternate;
+}
+
+.blob3 {
+  width: 40vw;
+  height: 40vw;
+  max-width: 500px;
+  max-height: 500px;
+  left: 35%;
+  bottom: -22%;
+  background: color-mix(in srgb, var(--accent) 45%, #d946ef);
+  animation: rise3 25s ease-in-out infinite alternate;
+}
+
+/* Mouvement vertical dominant (bas -> haut) + légère ondulation
+   horizontale et étirement (scaleY) pour le rendu "lampe à lave". */
+@keyframes rise1 {
+  0% {
+    transform: translate(0, 0) scale(1, 1);
+  }
+  50% {
+    transform: translate(5vw, -55vh) scale(0.92, 1.12);
+  }
+  100% {
+    transform: translate(-3vw, -110vh) scale(1.1, 0.95);
+  }
+}
+
+@keyframes rise2 {
+  0% {
+    transform: translate(0, 0) scale(1.05, 1);
+  }
+  50% {
+    transform: translate(-6vw, -50vh) scale(0.9, 1.15);
+  }
+  100% {
+    transform: translate(4vw, -105vh) scale(1.08, 0.92);
+  }
+}
+
+@keyframes rise3 {
+  0% {
+    transform: translate(0, 0) scale(1, 1);
+  }
+  50% {
+    transform: translate(7vw, -52vh) scale(1.12, 0.9);
+  }
+  100% {
+    transform: translate(-5vw, -108vh) scale(0.95, 1.1);
+  }
+}
+
+/* Accessibilité : on fige le fond si l'utilisateur préfère moins de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none !important;
+  }
+}

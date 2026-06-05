@@ -1,0 +1,56 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  transition: border-color var(--transition), background var(--transition), transform 0.15s ease;
+}
+
+.toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.toggle:active {
+  transform: scale(0.92);
+}
+
+/* Conteneur des deux icônes : on fait pivoter pour révéler l'une ou l'autre */
+.icons {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.icons svg {
+  position: absolute;
+  inset: 0;
+  width: 20px;
+  height: 20px;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+/* Par défaut (clair) : soleil visible, lune cachée en pivotant */
+.sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+.moon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+/* Mode sombre : on inverse */
+.dark .sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+.dark .moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}

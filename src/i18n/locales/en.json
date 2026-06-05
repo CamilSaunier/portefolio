@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Camil Saunier",
+    "role": "Full Stack Developer",
+    "tagline": "With the right tools and the right people, anything can be learned.",
+    "ctaProjects": "View my projects",
+    "ctaContact": "Get in touch",
+    "scroll": "Scroll down",
+    "available": "Open to hiring"
+  },
+  "about": {
+    "title": "About",
+    "lead": "Full stack developer and career-changer, driven by curiosity and a love of teamwork.",
+    "p1": "Before code, I spent nearly 6 years as a field operations technician on FTTH/FTTB fibre networks — fault-fixing, major-outage response and 24/7 on-call — in a world where precision, autonomy and a zero-error mindset are the norm. Before that, two years working in Australia and three years in the non-profit sector (earning a DEJEPS diploma in parallel) taught me to adapt fast and collaborate with very diverse profiles.",
+    "p2": "In 2024-2025 I retrained as a Web and Mobile Web Developer (DWWM certification), then completed two back-to-back internships delivering real-world features. I love working with others, learning and growing — and I'm now looking for a team where I can put that energy into ambitious projects.",
+    "facts": {
+      "diploma": "Certification",
+      "diplomaValue": "DWWM · 2025",
+      "experience": "Background",
+      "experienceValue": "Career-changer · ex-telecom",
+      "location": "Location",
+      "locationValue": "France · ready to relocate",
+      "status": "Status",
+      "statusValue": "Open to hiring"
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "My developer journey and the background that fuels it.",
+    "present": "Present",
+    "items": {
+      "semantik": {
+        "role": "Full Stack Developer — Internship",
+        "company": "Semantik Match",
+        "period": "Dec. 2025 – Jul. 2026 · 6 months",
+        "description": "HR-Tech platform matching candidates with top-school programmes. Led a full UI overhaul of the front-end, added AI tools (candidate pre-filtering, profile autofill) and built type-safe Node.js/TSOA APIs. Async jobs with BullMQ/Redis, environments managed via Docker."
+      },
+      "mostache": {
+        "role": "Full Stack Developer — Internship",
+        "company": "Moustache Bikes",
+        "period": "Jun – Jul 2025 · 2 months",
+        "description": "Rebuilt, in React, the front-end of an internal tool tracking customers, sellers, stores and products. Integrated charts and real-time statistics on top of an existing back-end, following the brand's high standards."
+      },
+      "dwwm": {
+        "role": "DWWM Professional Certification",
+        "company": "O'clock · Transition Pro",
+        "period": "2024 – 2025",
+        "description": "Retraining as a Web and Mobile Web Developer, in remote-live format with a final exam in Paris. Covered front-end, back-end, databases and web application deployment."
+      },
+      "telecom": {
+        "role": "Senior Fibre Field Technician",
+        "company": "ERT Technologies / Altice",
+        "period": "2020 – 2025 · ~6 years",
+        "description": "Diagnostics and fault-fixing on FTTH/FTTB networks, 24/7 on-call response and mentoring of junior technicians. A zero-tolerance environment that forged my rigour and autonomy — reflexes I carry straight into development."
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "The technologies I build with on a daily basis.",
+    "categories": {
+      "frontend": "Front-end",
+      "backend": "Back-end & Infra",
+      "tools": "Methods & Tools"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A selection of my work. As the professional repositories are private, I show screenshots and write-ups.",
+    "privateRepo": "Private repository",
+    "live": "Live site",
+    "visit": "Visit the site",
+    "viewMore": "Learn more",
+    "items": {
+      "one": {
+        "title": "Semantik Match Platform",
+        "description": "UI/UX overhaul of the candidate platform, a profile autofill feature and AI-driven candidate pre-filtering. Type-safe Node.js/TSOA APIs and BullMQ/Redis job queues.",
+        "tags": ["React", "Node.js", "TSOA", "AI"]
+      },
+      "two": {
+        "title": "Moustache Bikes Internal Portal",
+        "description": "Internal management tool (customers, stores, sellers, products) rebuilt in React, with dashboards and real-time statistics for dealer-network managers.",
+        "tags": ["React", "TypeScript", "Data Viz"]
+      },
+      "three": {
+        "title": "MS Climatisations",
+        "description": "Showcase website built for an air-conditioning and refrigeration company (HVAC technician) operating in the Vosges and Meurthe-et-Moselle regions of France. Services presentation, branding and local SEO.",
+        "tags": ["React", "Responsive", "Local SEO"]
+      }
+    }
+  },
+  "contact": {
+    "title": "Let's work together",
+    "subtitle": "An opportunity, a question, or just want to chat? I'll be glad to reply.",
+    "emailLabel": "Email",
+    "cta": "Send me an email",
+    "socials": "Also find me on"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Designed and built with React, no UI framework"
+  },
+  "theme": {
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode"
+  },
+  "language": {
+    "switch": "Change language"
+  }
+}
