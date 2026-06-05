@@ -78,7 +78,19 @@
     "privateRepo": "Private repository",
     "live": "Live site",
     "visit": "Visit the site",
+    "previews": "View previews",
+    "hidePreviews": "Hide previews",
+    "comingSoon": "Screenshot coming soon",
     "viewMore": "Learn more",
+    "areas": {
+      "candidate": "Candidate area",
+      "recruiter": "Recruiter area"
+    },
+    "devices": {
+      "desktop": "Desktop",
+      "tablet": "Tablet",
+      "phone": "Mobile"
+    },
     "items": {
       "one": {
         "title": "Semantik Match Platform",
@@ -114,5 +126,15 @@
   },
   "language": {
     "switch": "Change language"
+  },
+  "a11y": {
+    "skip": "Skip to main content",
+    "mainNav": "Main navigation",
+    "menu": "Open menu",
+    "gallery": "Preview gallery",
+    "close": "Close",
+    "prev": "Previous image",
+    "next": "Next image",
+    "imageOf": "Image {{current}} of {{total}}"
   }
 }

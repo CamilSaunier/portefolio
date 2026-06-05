@@ -23,9 +23,14 @@ export default function Skills() {
   const { t } = useTranslation();
 
   return (
-    <section id="skills" className="section">
+    <section id="skills" className="section" aria-labelledby="skills-title">
       <div className="container">
-        <SectionHeading eyebrow="03" title={t("skills.title")} subtitle={t("skills.subtitle")} />
+        <SectionHeading
+          eyebrow="03"
+          titleId="skills-title"
+          title={t("skills.title")}
+          subtitle={t("skills.subtitle")}
+        />
 
         <div className={styles.grid}>
           {GROUPS.map((group, i) => (

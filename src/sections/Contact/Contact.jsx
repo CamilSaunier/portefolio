@@ -10,10 +10,14 @@ export default function Contact() {
   const { t } = useTranslation();
 
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section" aria-labelledby="contact-title">
       <div className="container">
         <div className={styles.card}>
-          <SectionHeading title={t("contact.title")} subtitle={t("contact.subtitle")} />
+          <SectionHeading
+            titleId="contact-title"
+            title={t("contact.title")}
+            subtitle={t("contact.subtitle")}
+          />
 
           <Reveal className={styles.actions} delay={120}>
             <a href={`mailto:${EMAIL}`} className={styles.cta}>

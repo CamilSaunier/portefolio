@@ -23,7 +23,7 @@ export default function Navbar() {
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
-      <nav className={`container ${styles.nav}`}>
+      <nav className={`container ${styles.nav}`} aria-label={t("a11y.mainNav")}>
         <a href="#hero" className={styles.logo} onClick={closeMenu}>
           <span className={styles.logoMark}>{"</>"}</span>
           Camil<span className={styles.logoDot}>.</span>
@@ -45,7 +45,7 @@ export default function Navbar() {
           <button
             type="button"
             className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ""}`}
-            aria-label="Menu"
+            aria-label={t("a11y.menu")}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((o) => !o)}
           >

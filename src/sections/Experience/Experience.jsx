@@ -10,10 +10,11 @@ export default function Experience() {
   const { t } = useTranslation();
 
   return (
-    <section id="experience" className="section">
+    <section id="experience" className="section" aria-labelledby="experience-title">
       <div className="container">
         <SectionHeading
           eyebrow="02"
+          titleId="experience-title"
           title={t("experience.title")}
           subtitle={t("experience.subtitle")}
         />

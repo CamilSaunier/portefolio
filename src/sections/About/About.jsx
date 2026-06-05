@@ -14,9 +14,14 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="section">
+    <section id="about" className="section" aria-labelledby="about-title">
       <div className="container">
-        <SectionHeading eyebrow="01" title={t("about.title")} subtitle={t("about.lead")} />
+        <SectionHeading
+          eyebrow="01"
+          titleId="about-title"
+          title={t("about.title")}
+          subtitle={t("about.lead")}
+        />
 
         <div className={styles.grid}>
           <Reveal className={styles.text}>

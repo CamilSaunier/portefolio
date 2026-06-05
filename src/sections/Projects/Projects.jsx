@@ -1,45 +1,87 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import Reveal from "../../components/Reveal/Reveal";
+import Lightbox from "../../components/Lightbox/Lightbox";
 import styles from "./Projects.module.css";
 
-// `image` pointe vers public/projects/. Remplace par tes vraies captures.
-// `private` -> badge « Dépôt privé » ; `url` -> badge « Site en ligne » + lien.
+// `shots` = [{ src, device, area? }]. `src` null = capture pas encore fournie.
 const PROJECTS = [
-  { id: "one", image: "/projects/project-1.png", private: true },
-  { id: "two", image: "/projects/project-2.png", private: true },
-  { id: "three", image: "/projects/project-3.png", url: "https://ms-climatisations.com" },
+  {
+    id: "one",
+    logo: "/Semantikmatch_logo.png",
+    private: true,
+    shots: [
+      { src: "/projects/Semantikmatch/Apply1.png", device: "desktop", area: "candidate" },
+      { src: "/projects/Semantikmatch/Apply2.png", device: "desktop", area: "candidate" },
+      { src: "/projects/Semantikmatch/Apply4.png", device: "desktop", area: "candidate" },
+      { src: "/projects/Semantikmatch/Apply3.png", device: "phone", area: "candidate" },
+      { src: "/projects/Semantikmatch/Apply5.png", device: "phone", area: "candidate" },
+      { src: "/projects/Semantikmatch/Back-office1.png", device: "desktop", area: "recruiter" },
+      { src: "/projects/Semantikmatch/Back-office2.png", device: "desktop", area: "recruiter" },
+      { src: "/projects/Semantikmatch/Back-office3.png", device: "desktop", area: "recruiter" },
+      { src: "/projects/Semantikmatch/Back-office4.png", device: "desktop", area: "recruiter" },
+    ],
+  },
+  {
+    id: "two",
+    logo: "/Moustache_Logo.png",
+    private: true,
+    shots: [{ src: null, device: "desktop" }],
+  },
+  {
+    id: "three",
+    logo: "/MS_climatisation_logo.png",
+    url: "https://ms-climatisations.com",
+    shots: [],
+  },
 ];
 
 export default function Projects() {
   const { t } = useTranslation();
+  // galerie active : { shots: [{src, caption}], title } | null
+  const [gallery, setGallery] = useState(null);
+
+  const openGallery = (project) => {
+    const title = t(`projects.items.${project.id}.title`);
+    const shots = project.shots
+      .filter((s) => s.src)
+      .map((s) => {
+        const area = s.area ? t(`projects.areas.${s.area}`) : "";
+        const device = t(`projects.devices.${s.device}`);
+        return {
+          src: s.src,
+          group: area, // sert à regrouper les miniatures par section
+          caption: [area, device].filter(Boolean).join(" · "),
+        };
+      });
+    setGallery({ shots, title });
+  };
 
   return (
-    <section id="projects" className="section">
+    <section id="projects" className="section" aria-labelledby="projects-title">
       <div className="container">
         <SectionHeading
           eyebrow="04"
+          titleId="projects-title"
           title={t("projects.title")}
           subtitle={t("projects.subtitle")}
         />
 
         <div className={styles.grid}>
           {PROJECTS.map((project, i) => {
-            // returnObjects: récupère le tableau de tags depuis le JSON i18n
             const tags = t(`projects.items.${project.id}.tags`, { returnObjects: true });
+            const realShots = project.shots.filter((s) => s.src);
+            const canPreview = realShots.length > 0;
 
             return (
               <Reveal key={project.id} className={styles.card} delay={i * 100}>
                 <div className={styles.thumb}>
                   <img
-                    src={project.image}
+                    src={project.logo}
                     alt={t(`projects.items.${project.id}.title`)}
                     loading="lazy"
-                    onError={(e) => {
-                      // si la capture n'existe pas encore, on masque l'image
-                      // et on laisse le fond dégradé du conteneur visible
-                      e.currentTarget.style.display = "none";
-                    }}
+                    className={styles.logo}
                   />
                   {project.private && (
                     <span className={styles.badge}>{t("projects.privateRepo")}</span>
@@ -63,25 +105,40 @@ export default function Projects() {
                         </li>
                       ))}
                   </ul>
-                  {project.url && (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.visit}
-                    >
-                      {t("projects.visit")}
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d="M7 17 17 7M7 7h10v10" />
-                      </svg>
-                    </a>
-                  )}
+
+                  <div className={styles.actions}>
+                    {canPreview && (
+                      <button
+                        type="button"
+                        className={styles.preview}
+                        onClick={() => openGallery(project)}
+                      >
+                        {t("projects.previews")}
+                        <span className={styles.count}>{realShots.length}</span>
+                      </button>
+                    )}
+                    {!canPreview && project.private && (
+                      <span className={styles.soon}>{t("projects.comingSoon")}</span>
+                    )}
+                    {project.url && (
+                      <a href={project.url} target="_blank" rel="noreferrer" className={styles.visit}>
+                        {t("projects.visit")}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M7 17 17 7M7 7h10v10" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </Reveal>
             );
           })}
         </div>
       </div>
+
+      {gallery && (
+        <Lightbox shots={gallery.shots} title={gallery.title} onClose={() => setGallery(null)} />
+      )}
     </section>
   );
 }

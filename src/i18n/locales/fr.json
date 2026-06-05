@@ -78,7 +78,19 @@
     "privateRepo": "Dépôt privé",
     "live": "Site en ligne",
     "visit": "Visiter le site",
+    "previews": "Voir les aperçus",
+    "hidePreviews": "Masquer les aperçus",
+    "comingSoon": "Capture à venir",
     "viewMore": "En savoir plus",
+    "areas": {
+      "candidate": "Espace candidat",
+      "recruiter": "Espace recruteur"
+    },
+    "devices": {
+      "desktop": "Bureau",
+      "tablet": "Tablette",
+      "phone": "Mobile"
+    },
     "items": {
       "one": {
         "title": "Plateforme Semantik Match",
@@ -114,5 +126,15 @@
   },
   "language": {
     "switch": "Changer de langue"
+  },
+  "a11y": {
+    "skip": "Aller au contenu principal",
+    "mainNav": "Navigation principale",
+    "menu": "Ouvrir le menu",
+    "gallery": "Galerie d'aperçus",
+    "close": "Fermer",
+    "prev": "Image précédente",
+    "next": "Image suivante",
+    "imageOf": "Image {{current}} sur {{total}}"
   }
 }

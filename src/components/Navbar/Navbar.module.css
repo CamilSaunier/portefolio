@@ -127,13 +127,17 @@
     transform: translateY(-12px);
     opacity: 0;
     pointer-events: none;
-    transition: transform var(--transition), opacity var(--transition);
+    /* visibility: hidden retire les liens de l'ordre de tabulation quand fermé */
+    visibility: hidden;
+    transition: transform var(--transition), opacity var(--transition),
+      visibility var(--transition);
   }
 
   .links.open {
     transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
   }
 
   .links a {
