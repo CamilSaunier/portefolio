@@ -10,8 +10,9 @@ import styles from "./ProjectDetail.module.css";
  * - `title` : titre du projet
  * - `intro` : paragraphe d'introduction (optionnel)
  * - `features` : liste des fonctionnalités produites
+ * - `stack` : { backend: [{name, Icon?}], frontend: [{name, Icon?}] } (optionnel)
  */
-export default function ProjectDetail({ title, intro, features = [], onClose }) {
+export default function ProjectDetail({ title, intro, features = [], stack, onClose }) {
   const { t } = useTranslation();
   const overlayRef = useRef(null);
 
@@ -88,6 +89,27 @@ export default function ProjectDetail({ title, intro, features = [], onClose }) 
               <li key={idx}>{f}</li>
             ))}
           </ul>
+        )}
+
+        {/* stack technique : logos groupés back-end / front-end */}
+        {stack && (
+          <div className={styles.stack}>
+            {["backend", "frontend", "api"].map((group) =>
+              stack[group]?.length ? (
+                <div key={group} className={styles.stackGroup}>
+                  <span className={styles.stackLabel}>{t(`projects.${group}`)}</span>
+                  <ul className={styles.chips}>
+                    {stack[group].map(({ name, Icon }) => (
+                      <li key={name} className={styles.chip}>
+                        {Icon && <Icon className={styles.chipIcon} aria-hidden="true" />}
+                        {name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null
+            )}
+          </div>
         )}
       </div>
     </div>

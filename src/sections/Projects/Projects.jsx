@@ -1,11 +1,71 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { TbPlus } from "react-icons/tb";
+import {
+  SiReact,
+  SiTypescript,
+  SiNodedotjs,
+  SiExpress,
+  SiPrisma,
+  SiPostgresql,
+  SiRedis,
+  SiReactquery,
+  SiReactrouter,
+  SiMui,
+  SiCss,
+  SiSwagger,
+  SiPhp,
+} from "react-icons/si";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import Reveal from "../../components/Reveal/Reveal";
 import Lightbox from "../../components/Lightbox/Lightbox";
 import ProjectDetail from "../../components/ProjectDetail/ProjectDetail";
 import styles from "./Projects.module.css";
+
+// Stack technique par projet (icône optionnelle : certaines technos n'ont pas
+// de logo officiel -> affichées en puce texte). Affichée dans la modale détail.
+// Stack du PROJET (techno utilisée par l'appli), pas seulement ce que Camil a
+// codé : le back-end est consommé via Swagger côté front.
+const STACKS = {
+  one: {
+    backend: [
+      { name: "Node.js", Icon: SiNodedotjs },
+      { name: "TypeScript", Icon: SiTypescript },
+      { name: "Prisma", Icon: SiPrisma },
+      { name: "PostgreSQL", Icon: SiPostgresql },
+      { name: "BullMQ" },
+      { name: "Redis", Icon: SiRedis },
+      { name: "Express", Icon: SiExpress },
+      { name: "tsoa" },
+    ],
+    frontend: [
+      { name: "React", Icon: SiReact },
+      { name: "TypeScript", Icon: SiTypescript },
+      { name: "TanStack Query", Icon: SiReactquery },
+      { name: "Zustand" },
+      { name: "MUI Material", Icon: SiMui },
+      { name: "React Router", Icon: SiReactrouter },
+      { name: "CSS", Icon: SiCss },
+    ],
+    api: [{ name: "Swagger", Icon: SiSwagger }],
+  },
+  two: {
+    backend: [{ name: "PHP", Icon: SiPhp }],
+    frontend: [
+      { name: "React", Icon: SiReact },
+      { name: "TypeScript", Icon: SiTypescript },
+      { name: "Data Viz" },
+    ],
+    api: [{ name: "Swagger", Icon: SiSwagger }],
+  },
+  three: {
+    frontend: [
+      { name: "React", Icon: SiReact },
+      { name: "CSS", Icon: SiCss },
+      { name: "SEO local" },
+    ],
+  },
+};
 
 // `shots` = [{ src, device, area? }]. `src` null = capture pas encore fournie.
 const PROJECTS = [
@@ -53,6 +113,7 @@ export default function Projects() {
       title: t(`projects.items.${project.id}.title`),
       intro: details.intro,
       features: details.features,
+      stack: STACKS[project.id],
     });
   };
 
@@ -176,6 +237,7 @@ export default function Projects() {
           title={detail.title}
           intro={detail.intro}
           features={detail.features}
+          stack={detail.stack}
           onClose={() => setDetail(null)}
         />
       )}

@@ -4,10 +4,7 @@
   align-items: center;
   padding: 3px;
   border-radius: 10px;
-  border: 1px solid var(--glass-border);
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px) saturate(140%);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  /* pas d'encadrement : la goutte glisse directement sur la pastille .utils */
 }
 
 /* la "goutte" : pastille accent positionnée sous la langue active.

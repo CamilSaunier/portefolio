@@ -105,6 +105,55 @@
   background: var(--accent);
 }
 
+/* ---- Stack technique (logos groupés back-end / front-end) ---- */
+.stack {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.stackGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stackLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.chipIcon {
+  font-size: 17px;
+  color: var(--accent);
+}
+
 @media (max-width: 600px) {
   .panel { padding: 28px 22px; }
   .title { font-size: 1.2rem; }

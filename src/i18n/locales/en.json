@@ -107,6 +107,9 @@
     "hidePreviews": "Hide previews",
     "comingSoon": "Screenshot coming soon",
     "viewMore": "Learn more",
+    "backend": "Back-end",
+    "frontend": "Front-end",
+    "api": "API & tools",
     "areas": {
       "candidate": "Candidate area",
       "recruiter": "Recruiter area"
@@ -134,7 +137,7 @@
       "two": {
         "title": "Moustache Bikes Internal Portal",
         "description": "Internal management tool (customers, stores, sellers, products) rebuilt in React, with dashboards and real-time statistics for dealer-network managers.",
-        "tags": ["React", "TypeScript", "Data Viz"],
+        "tags": ["React", "TypeScript", "ERP"],
         "details": {
           "intro": "Internship at Moustache Bikes, a premium e-bike manufacturer. Rebuilt an internal dealer-network management tool in React and TypeScript on top of an existing back-end.",
           "features": [

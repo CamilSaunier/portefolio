@@ -9,7 +9,7 @@ import styles from "./About.module.css";
 
 // Version anti-cache : à incrémenter après chaque `bash scripts/generate-cv.sh`
 // (les fichiers gardent le même nom -> le ?v=N force le navigateur à recharger).
-const V = "?v=7";
+const V = "?v=9";
 
 // chaque CV a deux variantes PDF : claire et sombre
 const CVS = [

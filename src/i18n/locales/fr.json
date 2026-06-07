@@ -107,6 +107,9 @@
     "hidePreviews": "Masquer les aperçus",
     "comingSoon": "Capture à venir",
     "viewMore": "En savoir plus",
+    "backend": "Back-end",
+    "frontend": "Front-end",
+    "api": "API & outils",
     "areas": {
       "candidate": "Espace candidat",
       "recruiter": "Espace recruteur"
@@ -134,7 +137,7 @@
       "two": {
         "title": "Portail interne Moustache Bikes",
         "description": "Outil de gestion interne (clients, magasins, vendeurs, produits) refondu en React, avec tableaux de bord et statistiques temps réel pour les responsables du réseau de revendeurs.",
-        "tags": ["React", "TypeScript", "Data Viz"],
+        "tags": ["React", "TypeScript", "ERP"],
         "details": {
           "intro": "Stage chez Moustache Bikes, fabricant de vélos électriques premium. Refonte d'un outil interne de gestion du réseau de revendeurs, en React et TypeScript sur un back-end existant.",
           "features": [

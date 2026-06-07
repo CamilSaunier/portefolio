@@ -16,6 +16,7 @@ import {
   SiGit,
   SiGithub,
   SiVite,
+  SiSwagger,
 } from "react-icons/si";
 import {
   TbBrandVscode,
@@ -59,6 +60,7 @@ const HARD = [
     items: [
       { name: "Git", Icon: SiGit },
       { name: "GitHub", Icon: SiGithub },
+      { name: "Swagger", Icon: SiSwagger },
       { name: "Vite", Icon: SiVite },
       { name: "VS Code", Icon: TbBrandVscode },
     ],
