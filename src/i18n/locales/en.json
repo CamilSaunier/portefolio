@@ -70,11 +70,21 @@
   },
   "skills": {
     "title": "Skills",
-    "subtitle": "The technologies I build with on a daily basis.",
+    "subtitle": "My technical and human skills.",
+    "hard": "Hard skills",
+    "soft": "Soft skills",
     "categories": {
       "frontend": "Front-end",
       "backend": "Back-end & Infra",
       "tools": "Methods & Tools"
+    },
+    "softItems": {
+      "problemSolving": "Problem solving",
+      "autonomy": "Autonomy",
+      "rigor": "Rigour",
+      "communication": "Client communication",
+      "teamwork": "Teamwork & mentoring",
+      "adaptability": "Adaptability"
     }
   },
   "projects": {
@@ -166,6 +176,7 @@
     "close": "Close",
     "prev": "Previous image",
     "next": "Next image",
-    "imageOf": "Image {{current}} of {{total}}"
+    "imageOf": "Image {{current}} of {{total}}",
+    "toTop": "Back to top"
   }
 }

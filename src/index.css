@@ -82,7 +82,9 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   /* transition douce lors du basculement de thème */
-  transition: background-color var(--transition), color var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 img,
@@ -135,6 +137,22 @@ h3 {
 /* on retire l'outline par défaut quand ce n'est PAS une navigation clavier */
 :focus:not(:focus-visible) {
   outline: none;
+}
+
+/* Animation brève rejouée au changement de langue (FR <-> EN) */
+@keyframes lang-fx {
+  from {
+    opacity: 0.4;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.lang-fx {
+  animation: lang-fx 0.62s ease;
 }
 
 /* Contenu réservé aux lecteurs d'écran : invisible à l'œil, lu à voix haute */
@@ -202,7 +220,9 @@ h3 {
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .reveal.is-visible {

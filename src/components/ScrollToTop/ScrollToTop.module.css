@@ -1,0 +1,44 @@
+.btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 24px var(--shadow-strong);
+  /* caché par défaut (et non focusable tant qu'invisible) */
+  opacity: 0;
+  transform: translateY(16px) scale(0.9);
+  pointer-events: none;
+  transition: opacity var(--transition), transform var(--transition), background var(--transition);
+}
+
+.btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+}
+
+/* sur mobile, le dock de navigation est en bas au centre :
+   on remonte le bouton pour ne pas le chevaucher */
+@media (max-width: 768px) {
+  .btn {
+    bottom: 84px;
+  }
+}

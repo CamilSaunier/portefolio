@@ -1,3 +1,89 @@
+/* ---- Toggle Hard / Soft (segmented, thumb glissant) ---- */
+.toggle {
+  position: relative;
+  display: inline-flex;
+  padding: 5px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin-bottom: 40px;
+}
+
+.toggleBtn {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 120px;
+  padding: 9px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.toggleActive {
+  color: #fff;
+}
+
+/* pastille accent qui glisse sous le libellé actif */
+.toggleThumb {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  width: calc(50% - 5px);
+  border-radius: 999px;
+  background: var(--accent);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggleThumb[data-mode="soft"] {
+  transform: translateX(100%);
+}
+
+/* ---- Scène + balayage ---- */
+.stage {
+  position: relative;
+}
+
+/* le panneau se révèle par un balayage (clip-path) selon le sens choisi.
+   Pas de fill-mode : une fois fini, clip-path revient à none -> aucun
+   rognage des cartes qui se soulèvent au survol. */
+.panel {
+  clip-path: none;
+}
+
+.hard {
+  animation: wipe-from-left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.soft {
+  animation: wipe-from-right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes wipe-from-left {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.5;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes wipe-from-right {
+  from {
+    clip-path: inset(0 0 0 100%);
+    opacity: 0.5;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -67,8 +153,45 @@
   text-align: center;
 }
 
+/* ---- Soft skills : grille de tuiles icône + libellé ---- */
+.softGrid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.softItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: border-color var(--transition), transform 0.2s ease, box-shadow var(--transition);
+}
+
+.softItem:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px var(--shadow);
+}
+
+.softIcon {
+  flex-shrink: 0;
+  font-size: 30px;
+  color: var(--accent);
+}
+
+.softLabel {
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
 @media (max-width: 860px) {
-  .grid {
+  .grid,
+  .softGrid {
     grid-template-columns: 1fr;
   }
 }
