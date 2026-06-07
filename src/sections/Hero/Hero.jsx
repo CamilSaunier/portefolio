@@ -70,11 +70,20 @@ export default function Hero() {
         </div>
       </div>
 
-      <a href="#about" className={styles.scroll} aria-label={t("hero.scroll")}>
-        <span className={styles.mouse}>
-          <span className={styles.wheel} />
-        </span>
+      <a href="#about" className={styles.scroll}>
         {t("hero.scroll")}
+        <svg
+          className={styles.chevron}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
       </a>
     </section>
   );

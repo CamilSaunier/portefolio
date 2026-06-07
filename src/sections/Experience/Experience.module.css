@@ -38,8 +38,10 @@
 .card {
   padding: 24px;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
   transition: border-color var(--transition), transform 0.2s ease, box-shadow var(--transition);
 }
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { TbHome, TbUser, TbBriefcase, TbCode, TbLayoutGrid, TbMail } from "react-icons/tb";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
@@ -18,6 +18,10 @@ const ITEMS = [
 export default function Navbar() {
   const { t } = useTranslation();
   const [active, setActive] = useState("hero");
+  const dockRef = useRef(null);
+  const dropRef = useRef(null);
+  const dropInnerRef = useRef(null);
+  const firstRun = useRef(true);
 
   // scroll-spy : met en surbrillance l'icône de la section visible
   useEffect(() => {
@@ -37,6 +41,37 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  // place la goutte sous l'item actif (mesuré en JS -> responsive et robuste).
+  // `squash` rejoue la déformation ; on l'évite au 1er rendu et au resize.
+  const positionDrop = useCallback((squash) => {
+    const dock = dockRef.current;
+    const drop = dropRef.current;
+    if (!dock || !drop) return;
+    const el = dock.querySelector('[aria-current="true"]');
+    if (!el) return;
+    drop.style.width = `${el.offsetWidth}px`;
+    drop.style.height = `${el.offsetHeight}px`;
+    drop.style.transform = `translate(${el.offsetLeft}px, ${el.offsetTop}px)`;
+    const inner = dropInnerRef.current;
+    if (squash && inner) {
+      inner.classList.remove(styles.squash);
+      void inner.offsetWidth; // reflow -> relance l'animation
+      inner.classList.add(styles.squash);
+    }
+  }, []);
+
+  useEffect(() => {
+    positionDrop(!firstRun.current);
+    firstRun.current = false;
+  }, [active, positionDrop]);
+
+  // repositionne (sans déformation) si la fenêtre change de taille
+  useEffect(() => {
+    const onResize = () => positionDrop(false);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [positionDrop]);
+
   return (
     <>
       {/* logo flottant en haut à gauche */}
@@ -47,7 +82,13 @@ export default function Navbar() {
       </a>
 
       {/* dock de navigation flottant (liquid glass) */}
-      <nav className={styles.dock} aria-label={t("a11y.mainNav")}>
+      <nav ref={dockRef} className={styles.dock} aria-label={t("a11y.mainNav")}>
+        {/* reflet de lumière périodique et discret (clin d'œil "liquid glass") */}
+        <span className={styles.shine} aria-hidden="true" />
+        {/* goutte qui glisse sous l'item actif (translate) + se déforme (squash) */}
+        <span ref={dropRef} className={styles.drop} aria-hidden="true">
+          <span ref={dropInnerRef} className={styles.dropInner} />
+        </span>
         {ITEMS.map(({ id, key, Icon }) => {
           const label = t(`nav.${key}`);
           return (

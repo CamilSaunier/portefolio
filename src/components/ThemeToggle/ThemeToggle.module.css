@@ -5,14 +5,14 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: none;
+  background: transparent;
   color: var(--text);
-  transition: border-color var(--transition), background var(--transition), transform 0.15s ease;
+  transition: color var(--transition), background var(--transition), transform 0.15s ease;
 }
 
 .toggle:hover {
-  border-color: var(--accent);
+  background: var(--accent-soft);
   color: var(--accent);
 }
 

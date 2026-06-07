@@ -93,9 +93,14 @@
 .card {
   padding: 28px;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  transition: border-color var(--transition), transform 0.2s ease, box-shadow var(--transition);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  transition:
+    border-color var(--transition),
+    transform 0.2s ease,
+    box-shadow var(--transition);
 }
 
 .card:hover {
@@ -115,6 +120,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  justify-content: center;
 }
 
 /* tuile logo + nom */
@@ -127,7 +133,10 @@
   padding: 14px 8px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
-  transition: border-color var(--transition), transform 0.15s ease, background var(--transition);
+  transition:
+    border-color var(--transition),
+    transform 0.15s ease,
+    background var(--transition);
 }
 
 .item:hover {
@@ -167,9 +176,14 @@
   gap: 14px;
   padding: 22px;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  transition: border-color var(--transition), transform 0.2s ease, box-shadow var(--transition);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  transition:
+    border-color var(--transition),
+    transform 0.2s ease,
+    box-shadow var(--transition);
 }
 
 .softItem:hover {

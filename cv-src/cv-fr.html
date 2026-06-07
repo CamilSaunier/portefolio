@@ -6,7 +6,12 @@
     <style>
       /* ATS-safe : une seule colonne, texte réel, pas d'image/colonnes/tableau.
          Identité via couleur accent + typographie. */
-      @page { size: A4; margin: 13mm 15mm; }
+      /* marges haut/bas via @page (répétées sur chaque page) ;
+         marges gauche/droite via padding body (sinon le fond sombre laisse
+         des bandes blanches dans les marges @page en impression). */
+      /* margin:0 -> aucune bande blanche (le fond <html> couvre toute la
+         feuille) ; tout le retrait du contenu est géré par le padding body. */
+      @page { size: A4; margin: 0; }
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body {
         font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -16,6 +21,7 @@
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
+      body { padding: 14mm 20mm; }
       :root { --accent: #4f46e5; --muted: #5c5c69; --line: #e4e4ee; }
 
       .brand {
@@ -96,7 +102,23 @@
       .edu .sub { font-size: 9pt; color: var(--muted); }
       .inline { font-size: 9.5pt; }
       .inline b { color: #1f1f29; }
+
+      /* ---- Variante sombre (activée par ?dark dans l'URL de génération) ----
+         Fond posé sur <html> : en média paginé, le fond de l'élément racine
+         est propagé à TOUT le canvas (marges + toutes les pages) -> sombre
+         intégral, sans liseré blanc dans les marges. */
+      html.dark { color: #e7e7ea; background: #14141c; --accent: #fb923c; --muted: #a3a3ad; --line: #2a2a33; }
+      html.dark body { color: #e7e7ea; background: transparent; }
+      html.dark header { background: rgba(251, 146, 60, 0.12); }
+      html.dark h2 { border-bottom-color: rgba(251, 146, 60, 0.35); }
+      html.dark .photo { background: #20202b; }
+      html.dark .skill b,
+      html.dark .inline b { color: #e7e7ea; }
     </style>
+    <script>
+      // ?dark dans l'URL -> active la variante sombre avant le rendu/print
+      if (location.search.indexOf("dark") > -1) document.documentElement.classList.add("dark");
+    </script>
   </head>
   <body>
     <header>

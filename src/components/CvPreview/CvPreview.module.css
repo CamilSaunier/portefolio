@@ -1,0 +1,163 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(8, 8, 12, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: overlay-in 0.25s ease both;
+}
+
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: min(880px, 100%);
+  height: min(92vh, 100%);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  animation: panel-in 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes panel-in {
+  from { opacity: 0; transform: scale(0.97) translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* barre d'actions au-dessus de l'aperçu */
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* segmented control clair / sombre */
+.toggle {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.segBtn {
+  padding: 5px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 6px;
+  color: var(--text-muted);
+  transition: color var(--transition), background var(--transition);
+}
+
+.segBtn:hover {
+  color: var(--text);
+}
+
+.segActive {
+  background: var(--accent);
+  color: #fff;
+}
+
+.segActive:hover {
+  color: #fff;
+}
+
+/* bouton télécharger accentué */
+.download {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #fff;
+  background: var(--accent);
+  transition: background var(--transition);
+}
+
+.download:hover {
+  background: var(--accent-hover);
+}
+
+.download svg {
+  width: 16px;
+  height: 16px;
+}
+
+.close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  transition: background var(--transition), color var(--transition);
+}
+
+.close:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.close svg { width: 18px; height: 18px; }
+
+/* zone d'aperçu : pages empilées, défilables, sur fond thématique */
+.viewer {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 24px;
+  /* pourtour assorti à la VARIANTE du CV (couleurs fixes, indépendantes du
+     thème du site) -> pas de bande claire autour d'un CV sombre */
+  background: #ebebef;
+  transition: background var(--transition);
+}
+
+.viewer[data-variant="dark"] {
+  background: #0c0c0f;
+}
+
+.page {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 640px) {
+  .overlay { padding: 0; }
+  .panel { height: 100%; border-radius: 0; }
+  .bar { flex-wrap: wrap; gap: 10px; }
+  .title { width: 100%; }
+}

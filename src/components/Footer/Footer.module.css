@@ -21,3 +21,11 @@
   color: var(--text-muted);
   font-family: var(--font-mono);
 }
+
+/* le dock de navigation passe en bas (fixed) dès 768px : on réserve de la
+   place sous le footer pour qu'il ne soit pas recouvert en bas de page */
+@media (max-width: 768px) {
+  .footer {
+    padding-bottom: 96px;
+  }
+}

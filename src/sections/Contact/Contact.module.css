@@ -21,6 +21,43 @@
   inset: 0 0 auto 0;
   height: 1px;
   background: var(--glass-highlight);
+  z-index: 2;
+}
+
+/* reflet de lumière diagonal qui traverse le verre à l'apparition de la carte.
+   Bande blanche oblique, hors champ à gauche, balayée vers la droite quand
+   .is-visible est posée par <Reveal> (entrée dans le viewport). */
+.card::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: 0;
+  width: 45%;
+  height: 220%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transform: translateX(-250%) rotate(18deg);
+  opacity: 0;
+}
+
+/* boucle longue : un balayage bref puis une longue pause -> le reflet
+   "pop" de temps en temps. Période (13s) différente du dock (10s) pour
+   qu'ils ne soient jamais synchronisés (effet aléatoire). */
+.card:global(.is-visible)::after {
+  animation: contact-shine 13s ease-in-out 0.4s infinite;
+}
+
+@keyframes contact-shine {
+  0% { transform: translateX(-250%) rotate(18deg); opacity: 0; }
+  2% { opacity: 1; }
+  11% { transform: translateX(420%) rotate(18deg); opacity: 1; }
+  11.01%, 100% { transform: translateX(420%) rotate(18deg); opacity: 0; }
 }
 
 /* badge de statut avec point pulsé */

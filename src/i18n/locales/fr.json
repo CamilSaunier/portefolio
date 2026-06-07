@@ -25,11 +25,16 @@
   "about": {
     "title": "À propos",
     "lead": "Développeur full stack issu d'une reconversion, porté par la curiosité et le goût du travail d'équipe.",
-    "p1": "Avant le code, j'ai passé près de 6 ans comme technicien d'exploitation sur des réseaux fibre FTTH/FTTB — dépannage, pannes générales et astreintes 24/7 — dans un univers où la rigueur, l'autonomie et la tolérance zéro à l'erreur sont la norme. Avant cela, deux ans de travail en Australie et trois ans dans le milieu associatif (DEJEPS en parallèle) m'ont appris à m'adapter vite et à collaborer avec des profils très variés.",
-    "p2": "En 2024-2025, je me suis reconverti en obtenant le titre Développeur Web et Web Mobile (DWWM), puis j'ai enchaîné deux stages où j'ai livré des fonctionnalités concrètes. J'aime travailler avec les autres, apprendre et évoluer : je cherche aujourd'hui une équipe où mettre cette énergie au service de projets ambitieux.",
+    "p1": "Avant le code, j'ai passé près de 6 ans comme technicien d'exploitation sur des réseaux fibre FTTH/FTTB — dépannage, pannes générales et astreintes 24/7 — dans un univers où la rigueur, l'autonomie et la gestion des situations critiques sont la norme.",
+    "p2": "Avant cela, deux ans de travail en Australie et trois ans dans le milieu associatif (DEJEPS en parallèle) m'ont appris à m'adapter vite et à collaborer avec des profils très variés.",
+    "p3": "En 2024-2025, je me suis reconverti en obtenant le titre Développeur Web et Web Mobile (DWWM), puis j'ai enchaîné deux stages où j'ai livré des fonctionnalités concrètes. J'aime travailler avec les autres, apprendre et évoluer : je cherche aujourd'hui une équipe où mettre cette énergie au service de projets ambitieux.",
     "cvFr": "CV en français",
     "cvEn": "CV en anglais",
     "cvSoon": "bientôt",
+    "preview": "Aperçu du CV",
+    "download": "Télécharger le PDF",
+    "light": "Clair",
+    "dark": "Sombre",
     "facts": {
       "diploma": "Diplôme",
       "diplomaValue": "Titre DWWM · 2025",
