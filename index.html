@@ -2,12 +2,43 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link id="favicon" rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta id="theme-color" name="theme-color" content="#6366f1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Portfolio de Camil Saunier — Développeur Full Stack (React, Node.js). Reconverti, ex-télécoms. Projets, parcours et compétences."
     />
+
+    <!-- ============================================================
+         Open Graph + Twitter : aperçu lors du partage du lien
+         (LinkedIn, Slack, X…). Les robots ne lisent QUE ce HTML brut,
+         donc ces balises sont statiques. L'URL vient de VITE_SITE_URL
+         (.env) et est injectée par Vite au build via %VITE_SITE_URL%.
+         ============================================================ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Camil Saunier" />
+    <meta property="og:url" content="%VITE_SITE_URL%" />
+    <meta property="og:title" content="Camil Saunier — Développeur Full Stack" />
+    <meta
+      property="og:description"
+      content="Développeur Full Stack (React, Node.js, TypeScript). Reconverti, ex-télécoms. Ouvert au recrutement."
+    />
+    <meta property="og:image" content="%VITE_SITE_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Camil Saunier — Full Stack Developer" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Camil Saunier — Développeur Full Stack" />
+    <meta
+      name="twitter:description"
+      content="Développeur Full Stack (React, Node.js, TypeScript). Reconverti, ex-télécoms. Ouvert au recrutement."
+    />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/og-image.png" />
+
     <!-- Évite le flash de thème : on applique data-theme avant le rendu de React -->
     <script>
       (function () {
@@ -16,6 +47,12 @@
           var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
           var theme = saved || (prefersDark ? "dark" : "light");
           document.documentElement.setAttribute("data-theme", theme);
+          // favicon + couleur de barre assortis au thème, dès le 1er paint (pas de flash)
+          var dark = theme === "dark";
+          var icon = document.getElementById("favicon");
+          if (icon) icon.href = dark ? "/favicon-dark.svg" : "/favicon.svg";
+          var tc = document.getElementById("theme-color");
+          if (tc) tc.content = dark ? "#fb923c" : "#6366f1";
         } catch (e) {}
       })();
     </script>

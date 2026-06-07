@@ -1,0 +1,150 @@
+/* Carte de visite centrée, posée sur le fond lava (liquid glass). */
+.card {
+  position: relative;
+  max-width: 540px;
+  margin-inline: auto;
+  padding: 48px 40px;
+  text-align: center;
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: 0 24px 60px var(--shadow-strong);
+  /* liseré clair en haut interne -> rendu "verre" */
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: var(--glass-highlight);
+}
+
+/* badge de statut avec point pulsé */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  margin-bottom: 22px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: contact-pulse 2s infinite;
+}
+
+@keyframes contact-pulse {
+  0% { box-shadow: 0 0 0 0 var(--accent-soft); }
+  70% { box-shadow: 0 0 0 7px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.title {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  margin-bottom: 14px;
+}
+
+.brace {
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.lead {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  max-width: 40ch;
+  margin: 0 auto 30px;
+}
+
+/* bouton e-mail accentué */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  box-shadow: 0 10px 28px var(--shadow-strong);
+  transition: background var(--transition), transform 0.15s ease;
+}
+
+.cta:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.cta svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* adresse lisible sous le bouton (rassure : vrai contact, pas un formulaire) */
+.emailText {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.socialsWrap {
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid var(--border);
+}
+
+.socialsLabel {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+/* on centre la rangée de réseaux (le composant Socials est réutilisé tel quel) */
+.socials {
+  justify-content: center;
+}
+
+/* puces localisation + langues */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 22px;
+  margin-top: 30px;
+}
+
+.meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.meta svg {
+  width: 17px;
+  height: 17px;
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 36px 22px;
+  }
+}

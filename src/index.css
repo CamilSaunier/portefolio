@@ -19,6 +19,11 @@
   --shadow: rgba(24, 24, 27, 0.08);
   --shadow-strong: rgba(24, 24, 27, 0.14);
 
+  /* couleurs secondaires de la lampe à lave (mélangées à --accent).
+     Thème clair : froides (cyan + fuchsia) pour rester dans l'esprit indigo. */
+  --blob-mix-2: #22d3ee;
+  --blob-mix-3: #d946ef;
+
   /* effet "liquid glass" — thème clair */
   --glass-bg: rgba(255, 255, 255, 0.6);
   --glass-border: rgba(255, 255, 255, 0.7);
@@ -45,11 +50,17 @@
   --text: #f4f4f5;
   --text-muted: #a1a1aa;
   --border: #27272f;
-  --accent: #818cf8;
-  --accent-hover: #a5b4fc;
-  --accent-soft: rgba(129, 140, 248, 0.16);
+  /* Thème sombre : accent chaud "braises dans la nuit" (ambre-orangé) */
+  --accent: #fb923c;
+  --accent-hover: #fdba74;
+  --accent-soft: rgba(251, 146, 60, 0.16);
   --shadow: rgba(0, 0, 0, 0.4);
   --shadow-strong: rgba(0, 0, 0, 0.6);
+
+  /* couleurs secondaires de la lampe à lave — chaudes : ambre + rouge,
+     pour un dégradé orange -> ambre -> rouge facon braises/lave */
+  --blob-mix-2: #f59e0b;
+  --blob-mix-3: #ef4444;
 
   /* effet "liquid glass" — thème sombre */
   --glass-bg: rgba(22, 22, 30, 0.5);

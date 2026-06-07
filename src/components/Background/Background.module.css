@@ -22,7 +22,8 @@
 }
 
 /* Trois taches de tailles/couleurs/trajectoires différentes.
-   Les couleurs dérivent de --accent (via color-mix) → s'adaptent au thème. */
+   Les couleurs dérivent de --accent + des tokens --blob-mix-* (via color-mix)
+   → froides en thème clair, chaudes (braises) en thème sombre. */
 .blob1 {
   width: 44vw;
   height: 44vw;
@@ -41,7 +42,7 @@
   max-height: 440px;
   right: 4%;
   bottom: -25%;
-  background: color-mix(in srgb, var(--accent) 38%, #22d3ee);
+  background: color-mix(in srgb, var(--accent) 38%, var(--blob-mix-2));
   animation: rise2 28s ease-in-out infinite alternate;
 }
 
@@ -52,7 +53,7 @@
   max-height: 500px;
   left: 35%;
   bottom: -22%;
-  background: color-mix(in srgb, var(--accent) 45%, #d946ef);
+  background: color-mix(in srgb, var(--accent) 45%, var(--blob-mix-3));
   animation: rise3 25s ease-in-out infinite alternate;
 }
 

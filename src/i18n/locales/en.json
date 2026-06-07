@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Camil Saunier — Full Stack Developer",
+    "description": "Portfolio of Camil Saunier — Full Stack Developer (React, Node.js). Career-changer, ex-telecom. Projects, background and skills."
+  },
   "nav": {
     "home": "Home",
     "about": "About",
@@ -151,11 +155,14 @@
     }
   },
   "contact": {
+    "status": "Open to hiring",
     "title": "Let's work together",
     "subtitle": "An opportunity, a question, or just want to chat? I'll be glad to reply.",
     "emailLabel": "Email",
     "cta": "Send me an email",
-    "socials": "Also find me on"
+    "socials": "Also find me on",
+    "location": "France · open to relocate",
+    "languages": "French (native) · English (professional)"
   },
   "footer": {
     "rights": "All rights reserved.",

@@ -22,6 +22,13 @@ export function ThemeProvider({ children }) {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
+
+    // favicon + couleur de barre du navigateur assortis au thème
+    const dark = theme === "dark";
+    const icon = document.getElementById("favicon");
+    if (icon) icon.setAttribute("href", dark ? "/favicon-dark.svg" : "/favicon.svg");
+    const themeColor = document.getElementById("theme-color");
+    if (themeColor) themeColor.setAttribute("content", dark ? "#fb923c" : "#6366f1");
   }, [theme]);
 
   const toggleTheme = useCallback(() => {

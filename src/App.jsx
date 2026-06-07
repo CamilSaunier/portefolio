@@ -8,6 +8,7 @@ import About from "./sections/About/About";
 import Experience from "./sections/Experience/Experience";
 import Skills from "./sections/Skills/Skills";
 import Projects from "./sections/Projects/Projects";
+import Contact from "./sections/Contact/Contact";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 export default function App() {
@@ -19,6 +20,11 @@ export default function App() {
     // <html lang> à jour pour les lecteurs d'écran (prononciation)
     document.documentElement.lang = i18n.resolvedLanguage;
 
+    // titre de l'onglet + meta description suivent la langue (SEO + UX onglet)
+    document.title = t("meta.title");
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute("content", t("meta.description"));
+
     // animation brève au changement de langue (on saute le 1er rendu)
     if (firstRun.current) {
       firstRun.current = false;
@@ -29,7 +35,7 @@ export default function App() {
     el.classList.remove("lang-fx");
     void el.offsetWidth; // force un reflow -> relance l'animation à chaque fois
     el.classList.add("lang-fx");
-  }, [i18n.resolvedLanguage]);
+  }, [i18n.resolvedLanguage, t]);
 
   return (
     <>
@@ -45,6 +51,7 @@ export default function App() {
         <Experience />
         <Skills />
         <Projects />
+        <Contact />
       </main>
       <Footer />
       <ScrollToTop />

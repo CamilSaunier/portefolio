@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TbHome, TbUser, TbBriefcase, TbCode, TbLayoutGrid } from "react-icons/tb";
+import { TbHome, TbUser, TbBriefcase, TbCode, TbLayoutGrid, TbMail } from "react-icons/tb";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import LanguageToggle from "../LanguageToggle/LanguageToggle";
 import styles from "./Navbar.module.css";
@@ -12,6 +12,7 @@ const ITEMS = [
   { id: "experience", key: "experience", Icon: TbBriefcase },
   { id: "skills", key: "skills", Icon: TbCode },
   { id: "projects", key: "projects", Icon: TbLayoutGrid },
+  { id: "contact", key: "contact", Icon: TbMail },
 ];
 
 export default function Navbar() {
