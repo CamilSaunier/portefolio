@@ -224,4 +224,9 @@
   .card {
     padding: 36px 22px;
   }
+  /* titre sur une seule ligne (taille réduite, scalée selon la largeur) */
+  .title {
+    font-size: clamp(1.15rem, 6vw, 1.5rem);
+    white-space: nowrap;
+  }
 }

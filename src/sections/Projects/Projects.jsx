@@ -15,6 +15,7 @@ import {
   SiCss,
   SiSwagger,
   SiPhp,
+  SiLaravel,
 } from "react-icons/si";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import Reveal from "../../components/Reveal/Reveal";
@@ -50,7 +51,10 @@ const STACKS = {
     api: [{ name: "Swagger", Icon: SiSwagger }],
   },
   two: {
-    backend: [{ name: "PHP", Icon: SiPhp }],
+    backend: [
+      { name: "PHP", Icon: SiPhp },
+      { name: "Laravel", Icon: SiLaravel },
+    ],
     frontend: [
       { name: "React", Icon: SiReact },
       { name: "TypeScript", Icon: SiTypescript },

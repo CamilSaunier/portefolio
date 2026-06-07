@@ -57,6 +57,28 @@
   animation: rise3 25s ease-in-out infinite alternate;
 }
 
+.blob4 {
+  width: 30vw;
+  height: 30vw;
+  max-width: 360px;
+  max-height: 360px;
+  left: 18%;
+  bottom: -28%;
+  background: color-mix(in srgb, var(--accent) 50%, var(--blob-mix-2));
+  animation: rise4 32s ease-in-out infinite alternate;
+}
+
+.blob5 {
+  width: 26vw;
+  height: 26vw;
+  max-width: 320px;
+  max-height: 320px;
+  right: 22%;
+  bottom: -30%;
+  background: color-mix(in srgb, var(--accent) 55%, var(--blob-mix-3));
+  animation: rise5 26s ease-in-out infinite alternate;
+}
+
 /* Mouvement vertical dominant (bas -> haut) + légère ondulation
    horizontale et étirement (scaleY) pour le rendu "lampe à lave". */
 @keyframes rise1 {
@@ -92,6 +114,30 @@
   }
   100% {
     transform: translate(-5vw, -108vh) scale(0.95, 1.1);
+  }
+}
+
+@keyframes rise4 {
+  0% {
+    transform: translate(0, 0) scale(1, 1);
+  }
+  50% {
+    transform: translate(-8vw, -58vh) scale(1.1, 0.92);
+  }
+  100% {
+    transform: translate(6vw, -112vh) scale(0.9, 1.12);
+  }
+}
+
+@keyframes rise5 {
+  0% {
+    transform: translate(0, 0) scale(1.08, 0.95);
+  }
+  50% {
+    transform: translate(9vw, -48vh) scale(0.92, 1.1);
+  }
+  100% {
+    transform: translate(-7vw, -104vh) scale(1.1, 0.9);
   }
 }
 
