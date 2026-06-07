@@ -36,7 +36,7 @@ const STACKS = {
       { name: "BullMQ" },
       { name: "Redis", Icon: SiRedis },
       { name: "Express", Icon: SiExpress },
-      { name: "tsoa" },
+      { name: "TSOA" },
     ],
     frontend: [
       { name: "React", Icon: SiReact },
@@ -222,7 +222,15 @@ export default function Projects() {
       {gallery && <Lightbox shots={gallery.shots} title={gallery.title} onClose={() => setGallery(null)} />}
 
       {detail && (
-        <ProjectDetail title={detail.title} logo={detail.logo} mono={detail.mono} intro={detail.intro} features={detail.features} stack={detail.stack} onClose={() => setDetail(null)} />
+        <ProjectDetail
+          title={detail.title}
+          logo={detail.logo}
+          mono={detail.mono}
+          intro={detail.intro}
+          features={detail.features}
+          stack={detail.stack}
+          onClose={() => setDetail(null)}
+        />
       )}
     </section>
   );

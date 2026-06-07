@@ -26,16 +26,11 @@
 }
 
 /* Vignette : hauteur FIXE -> le logo ne saute pas en hauteur.
-   Plaque claire/sombre selon thème. */
+   Pas de plaque : logos détourés posés directement sur le verre de la carte. */
 .thumb {
   position: relative;
   height: 150px;
   overflow: hidden;
-  background: linear-gradient(135deg, #ffffff, #eef0f5);
-}
-
-:global([data-theme="dark"]) .thumb {
-  background: linear-gradient(135deg, #20202b, #14141c);
 }
 
 .logo {
@@ -49,11 +44,9 @@
   padding: 24px;
 }
 
-/* logos à fond blanc (Semantik, Moustache) : en thème sombre, on inverse
-   (fond blanc -> sombre, logo noir -> blanc) et on fond le noir via "screen" */
+/* logos monochromes détourés : inversés (noir -> blanc) en thème sombre */
 :global([data-theme="dark"]) .logoMono {
   filter: invert(1);
-  mix-blend-mode: screen;
 }
 
 .badge {
