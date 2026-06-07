@@ -10,6 +10,7 @@ import Skills from "./sections/Skills/Skills";
 import Projects from "./sections/Projects/Projects";
 import Contact from "./sections/Contact/Contact";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 
 export default function App() {
   const { t, i18n } = useTranslation();
@@ -43,6 +44,7 @@ export default function App() {
       <a href="#main-content" className="skip-link">
         {t("a11y.skip")}
       </a>
+      <ScrollProgress />
       <Background />
       <Navbar />
       <main id="main-content" ref={mainRef}>

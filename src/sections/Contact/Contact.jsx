@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TbMapPin, TbLanguage } from "react-icons/tb";
+import { TbMapPin, TbLanguage, TbCopy, TbCheck } from "react-icons/tb";
 import Reveal from "../../components/Reveal/Reveal";
 import Socials, { EMAIL } from "../../components/Socials/Socials";
 import styles from "./Contact.module.css";
@@ -11,6 +12,17 @@ import styles from "./Contact.module.css";
  */
 export default function Contact() {
   const { t } = useTranslation();
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* presse-papiers indisponible : on ignore silencieusement */
+    }
+  };
 
   return (
     <section id="contact" className="section" aria-labelledby="contact-title">
@@ -37,7 +49,16 @@ export default function Contact() {
             {t("contact.cta")}
           </a>
 
-          <span className={styles.emailText}>{EMAIL}</span>
+          <button
+            type="button"
+            className={`${styles.emailText} ${copied ? styles.emailCopied : ""}`}
+            onClick={copyEmail}
+            title={t("contact.copy")}
+            aria-label={t("contact.copy")}
+          >
+            {copied ? <TbCheck aria-hidden="true" /> : <TbCopy aria-hidden="true" />}
+            <span aria-live="polite">{copied ? t("contact.copied") : EMAIL}</span>
+          </button>
 
           <div className={styles.socialsWrap}>
             <span className={styles.socialsLabel}>{t("contact.socials")}</span>

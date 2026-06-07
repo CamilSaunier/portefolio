@@ -1,3 +1,4 @@
+import { flushSync } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
 import styles from "./ThemeToggle.module.css";
@@ -7,11 +8,26 @@ export default function ThemeToggle() {
   const { t } = useTranslation();
   const isDark = theme === "dark";
 
+  // bascule avec une révélation circulaire (View Transitions) depuis le bouton ;
+  // repli silencieux si l'API n'existe pas ou si "mouvement réduit" est activé.
+  const handleToggle = (e) => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!document.startViewTransition || reduce) {
+      toggleTheme();
+      return;
+    }
+    const r = e.currentTarget.getBoundingClientRect();
+    const root = document.documentElement;
+    root.style.setProperty("--vt-x", `${r.left + r.width / 2}px`);
+    root.style.setProperty("--vt-y", `${r.top + r.height / 2}px`);
+    document.startViewTransition(() => flushSync(() => toggleTheme()));
+  };
+
   return (
     <button
       type="button"
       className={styles.toggle}
-      onClick={toggleTheme}
+      onClick={handleToggle}
       aria-label={isDark ? t("theme.toLight") : t("theme.toDark")}
       title={isDark ? t("theme.toLight") : t("theme.toDark")}
     >

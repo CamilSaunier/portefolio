@@ -153,12 +153,26 @@
     border-color var(--transition),
     transform 0.15s ease,
     background var(--transition);
+  /* entrée en cascade (delay inline) ; backwards -> tient l'état initial
+     pendant le délai SANS bloquer le transform du survol après l'animation */
+  animation: tile-in 0.4s ease backwards;
 }
 
 .item:hover {
   border-color: var(--accent);
   background: var(--accent-soft);
   transform: translateY(-3px);
+}
+
+@keyframes tile-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* le logo prend la couleur du texte (s'adapte au thème), accent au survol */
@@ -200,6 +214,8 @@
     border-color var(--transition),
     transform 0.2s ease,
     box-shadow var(--transition);
+  /* entrée en cascade (cf. .item) */
+  animation: tile-in 0.4s ease backwards;
 }
 
 .softItem:hover {

@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, useCallback } from "react";
+import { createContext, useContext, useLayoutEffect, useState, useCallback } from "react";
 
 const ThemeContext = createContext(null);
 
@@ -19,7 +19,9 @@ function getInitialTheme() {
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(getInitialTheme);
 
-  useEffect(() => {
+  // useLayoutEffect : appliqué synchroniquement -> compatible avec la
+  // transition de thème (View Transitions) qui capture le DOM avant/après.
+  useLayoutEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
 

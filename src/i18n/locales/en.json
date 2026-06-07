@@ -171,7 +171,9 @@
     "socials": "Also find me on",
     "location": "France · open to relocate",
     "languages": "French (native) · English (professional)",
-    "thanks": "Thanks for scrolling all the way down — I'd love to hear from you!"
+    "thanks": "Thanks for scrolling all the way down — I'd love to hear from you!",
+    "copy": "Copy address",
+    "copied": "Copied!"
   },
   "footer": {
     "rights": "All rights reserved.",

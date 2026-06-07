@@ -1,0 +1,13 @@
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100vh;
+  z-index: 200; /* au-dessus de la navbar (100), sous les modales (1000) */
+  background: var(--accent);
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.1s linear;
+  pointer-events: none;
+}

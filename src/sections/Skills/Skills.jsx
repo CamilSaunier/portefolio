@@ -128,8 +128,12 @@ export default function Skills() {
                   <div key={group.category} className={styles.card}>
                     <h3 className={styles.cardTitle}>{t(`skills.categories.${group.category}`)}</h3>
                     <ul className={styles.items}>
-                      {group.items.map(({ name, Icon }) => (
-                        <li key={name} className={styles.item}>
+                      {group.items.map(({ name, Icon }, idx) => (
+                        <li
+                          key={name}
+                          className={styles.item}
+                          style={{ animationDelay: `${idx * 45}ms` }}
+                        >
                           <Icon className={styles.icon} aria-hidden="true" />
                           <span className={styles.name}>{name}</span>
                         </li>
@@ -140,8 +144,12 @@ export default function Skills() {
               </div>
             ) : (
               <ul className={styles.softGrid}>
-                {SOFT.map(({ key, Icon }) => (
-                  <li key={key} className={styles.softItem}>
+                {SOFT.map(({ key, Icon }, idx) => (
+                  <li
+                    key={key}
+                    className={styles.softItem}
+                    style={{ animationDelay: `${idx * 45}ms` }}
+                  >
                     <Icon className={styles.softIcon} aria-hidden="true" />
                     <span className={styles.softLabel}>{t(`skills.softItems.${key}`)}</span>
                   </li>

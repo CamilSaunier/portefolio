@@ -200,8 +200,34 @@ h3 {
   outline-offset: 2px;
 }
 
+/* ============================================================
+   Transition de thème : révélation en cercle (View Transitions API)
+   Le nouveau thème se découvre depuis le bouton de bascule.
+   ============================================================ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  animation: vt-theme-reveal 0.5s ease-in both;
+}
+@keyframes vt-theme-reveal {
+  from {
+    clip-path: circle(0 at var(--vt-x, 50%) var(--vt-y, 50%));
+  }
+  to {
+    clip-path: circle(150vmax at var(--vt-x, 50%) var(--vt-y, 50%));
+  }
+}
+
 /* Accessibilité : on respecte la préférence "mouvement réduit" */
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+
   html {
     scroll-behavior: auto;
   }

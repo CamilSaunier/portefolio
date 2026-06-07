@@ -130,13 +130,34 @@
   height: 19px;
 }
 
-/* adresse lisible sous le bouton (rassure : vrai contact, pas un formulaire) */
+/* adresse cliquable (copie dans le presse-papiers) sous le bouton */
 .emailText {
-  display: block;
-  margin-top: 12px;
+  /* flex + margin auto -> bloc centré sur SA propre ligne (sous le bouton) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: fit-content;
+  margin: 12px auto 0;
   font-family: var(--font-mono);
   font-size: 0.85rem;
   color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.emailText:hover {
+  color: var(--accent);
+}
+
+/* retour visible après copie */
+.emailCopied {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.emailText svg {
+  width: 15px;
+  height: 15px;
 }
 
 .socialsWrap {
