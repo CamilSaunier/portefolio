@@ -25,9 +25,9 @@
   "about": {
     "title": "About",
     "lead": "Full stack developer and career-changer, driven by curiosity and a love of teamwork.",
-    "p1": "Before getting into code, I spent nearly 6 years as a Field Operations Technician on FTTH/FTTB fiber networks — handling troubleshooting, major outages, and 24/7 on-call shifts — in an environment where rigor, autonomy, and critical situation management are the norm.",
-    "p2": "Prior to that, two years working in Australia and three years in the non-profit sector (while earning a DEJEPS diploma) taught me to adapt quickly and collaborate with highly diverse profiles.",
-    "p3": "In 2024-2025, I transitioned into tech by earning my Full-Stack Web Developer certification (DWWM), followed by two internships where I delivered concrete features. I thrive on teamwork, learning, and evolving: today, I'm looking for a team where I can channel this energy into ambitious projects.",
+    "p1": "Before getting into code, I spent nearly **6 years** as a Field Operations Technician on **FTTH/FTTB** fiber networks — handling troubleshooting, major outages, and 24/7 on-call shifts — in an environment where **rigor**, **autonomy**, and critical situation management are the norm.",
+    "p2": "Prior to that, two years working in **Australia** and three years in the non-profit sector (while earning a **DEJEPS** diploma) taught me to **adapt quickly** and collaborate with highly diverse profiles.",
+    "p3": "In 2024-2025, I transitioned into tech by earning my **Full-Stack Web Developer certification (DWWM)**, followed by two internships where I delivered concrete features. I thrive on teamwork, learning, and evolving: today, I'm looking for a team where I can channel this energy into **ambitious projects**.",
     "cvFr": "French CV",
     "cvEn": "English CV",
     "cvSoon": "soon",
@@ -53,7 +53,7 @@
     "items": {
       "semantik": {
         "role": "Full Stack Developer — Internship",
-        "company": "Semantik Match",
+        "company": "Semantikmatch",
         "period": "Dec. 2025 – Jul. 2026 · 6 months",
         "description": "HR-Tech platform matching candidates with top-school programmes. Led a full UI overhaul of the front-end, added AI tools (candidate pre-filtering, profile autofill) and built type-safe Node.js/TSOA APIs. Async jobs with BullMQ/Redis, environments managed via Docker."
       },
@@ -121,7 +121,7 @@
     },
     "items": {
       "one": {
-        "title": "Semantik Match Platform",
+        "title": "Semantikmatch",
         "description": "UI/UX overhaul of the candidate platform, a profile autofill feature and AI-driven candidate pre-filtering. Type-safe Node.js/TSOA APIs and BullMQ/Redis job queues.",
         "tags": ["React", "Node.js", "TSOA", "AI"],
         "details": {
@@ -137,7 +137,7 @@
       "two": {
         "title": "Moustache Bikes Internal Portal",
         "description": "Internal management tool (customers, stores, sellers, products) rebuilt in React, with dashboards and real-time statistics for dealer-network managers.",
-        "tags": ["React", "TypeScript", "ERP"],
+        "tags": ["React", "TypeScript", "ERP", "Data Viz"],
         "details": {
           "intro": "Internship at Moustache Bikes, a premium e-bike manufacturer. Rebuilt an internal dealer-network management tool in React and TypeScript on top of an existing back-end.",
           "features": [
@@ -170,7 +170,8 @@
     "cta": "Send me an email",
     "socials": "Also find me on",
     "location": "France · open to relocate",
-    "languages": "French (native) · English (professional)"
+    "languages": "French (native) · English (professional)",
+    "thanks": "Thanks for scrolling all the way down — I'd love to hear from you!"
   },
   "footer": {
     "rights": "All rights reserved.",

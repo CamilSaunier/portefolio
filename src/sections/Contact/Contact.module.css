@@ -157,6 +157,25 @@
   justify-content: center;
 }
 
+/* verre dépoli sur les liens (cohérent avec le Hero) ; `.socials a` prime sur
+   le `.link` du composant Socials partagé */
+.socials a {
+  border-color: var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
+/* petit remerciement discret en bas de carte */
+.thanks {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
 /* puces localisation + langues */
 .meta {
   display: flex;

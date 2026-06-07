@@ -54,16 +54,13 @@ const STACKS = {
     frontend: [
       { name: "React", Icon: SiReact },
       { name: "TypeScript", Icon: SiTypescript },
-      { name: "Data Viz" },
+      { name: "MUI Material", Icon: SiMui },
+      { name: "MUI X Charts", Icon: SiMui },
     ],
     api: [{ name: "Swagger", Icon: SiSwagger }],
   },
   three: {
-    frontend: [
-      { name: "React", Icon: SiReact },
-      { name: "CSS", Icon: SiCss },
-      { name: "SEO local" },
-    ],
+    frontend: [{ name: "React", Icon: SiReact }, { name: "CSS", Icon: SiCss }, { name: "SEO local" }],
   },
 };
 
@@ -96,6 +93,7 @@ const PROJECTS = [
   {
     id: "three",
     logo: "/MS_climatisation_logo.png",
+    mono: true,
     url: "https://ms-climatisations.com",
     shots: [],
   },
@@ -111,6 +109,8 @@ export default function Projects() {
   const openDetail = (project, details) => {
     setDetail({
       title: t(`projects.items.${project.id}.title`),
+      logo: project.logo,
+      mono: project.mono,
       intro: details.intro,
       features: details.features,
       stack: STACKS[project.id],
@@ -136,12 +136,7 @@ export default function Projects() {
   return (
     <section id="projects" className="section" aria-labelledby="projects-title">
       <div className="container">
-        <SectionHeading
-          eyebrow="04"
-          titleId="projects-title"
-          title={t("projects.title")}
-          subtitle={t("projects.subtitle")}
-        />
+        <SectionHeading eyebrow="04" titleId="projects-title" title={t("projects.title")} subtitle={t("projects.subtitle")} />
 
         <div className={styles.grid}>
           {PROJECTS.map((project, i) => {
@@ -151,11 +146,7 @@ export default function Projects() {
             const canPreview = realShots.length > 0;
 
             return (
-              <Reveal
-                key={project.id}
-                className={styles.card}
-                delay={i * 100}
-              >
+              <Reveal key={project.id} className={styles.card} delay={i * 100}>
                 <div className={styles.thumb}>
                   <img
                     src={project.logo}
@@ -163,9 +154,7 @@ export default function Projects() {
                     loading="lazy"
                     className={`${styles.logo} ${project.mono ? styles.logoMono : ""}`}
                   />
-                  {project.private && (
-                    <span className={styles.badge}>{t("projects.privateRepo")}</span>
-                  )}
+                  {project.private && <span className={styles.badge}>{t("projects.privateRepo")}</span>}
                   {project.url && (
                     <span className={`${styles.badge} ${styles.badgeLive}`}>
                       <span className={styles.liveDot} />
@@ -200,22 +189,24 @@ export default function Projects() {
 
                   <div className={styles.actions}>
                     {canPreview && (
-                      <button
-                        type="button"
-                        className={styles.preview}
-                        onClick={() => openGallery(project)}
-                      >
+                      <button type="button" className={styles.preview} onClick={() => openGallery(project)}>
                         {t("projects.previews")}
                         <span className={styles.count}>{realShots.length}</span>
                       </button>
                     )}
-                    {!canPreview && project.private && (
-                      <span className={styles.soon}>{t("projects.comingSoon")}</span>
-                    )}
+                    {!canPreview && project.private && <span className={styles.soon}>{t("projects.comingSoon")}</span>}
                     {project.url && (
                       <a href={project.url} target="_blank" rel="noreferrer" className={styles.visit}>
                         {t("projects.visit")}
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
                           <path d="M7 17 17 7M7 7h10v10" />
                         </svg>
                       </a>
@@ -228,18 +219,10 @@ export default function Projects() {
         </div>
       </div>
 
-      {gallery && (
-        <Lightbox shots={gallery.shots} title={gallery.title} onClose={() => setGallery(null)} />
-      )}
+      {gallery && <Lightbox shots={gallery.shots} title={gallery.title} onClose={() => setGallery(null)} />}
 
       {detail && (
-        <ProjectDetail
-          title={detail.title}
-          intro={detail.intro}
-          features={detail.features}
-          stack={detail.stack}
-          onClose={() => setDetail(null)}
-        />
+        <ProjectDetail title={detail.title} logo={detail.logo} mono={detail.mono} intro={detail.intro} features={detail.features} stack={detail.stack} onClose={() => setDetail(null)} />
       )}
     </section>
   );

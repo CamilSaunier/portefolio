@@ -54,6 +54,9 @@ export default function Contact() {
               {t("contact.languages")}
             </li>
           </ul>
+
+          {/* petit remerciement pour qui a tout lu jusqu'ici */}
+          <p className={styles.thanks}>{t("contact.thanks")}</p>
         </Reveal>
       </div>
     </section>

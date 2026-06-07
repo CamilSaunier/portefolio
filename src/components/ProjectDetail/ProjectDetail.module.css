@@ -60,10 +60,44 @@
 
 .close svg { width: 20px; height: 20px; }
 
+/* en-tête : logo + titre côte à côte (desktop/tablette) */
+.head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-right: 44px; /* laisse la place au bouton fermer */
+}
+
+/* logo du projet (décoratif : le titre porte déjà le nom) */
+.logo {
+  flex-shrink: 0;
+  height: 44px;
+  width: auto;
+  max-width: 40%;
+  object-fit: contain;
+}
+/* logos monochromes : inversés en thème sombre pour rester visibles sur le panneau */
+:global([data-theme="dark"]) .logoMono {
+  filter: invert(1);
+}
+
 .title {
   font-size: 1.4rem;
-  margin-bottom: 18px;
-  padding-right: 40px; /* laisse la place au bouton fermer */
+}
+
+/* mobile : logo au-dessus du titre, le tout centré */
+@media (max-width: 600px) {
+  .head {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding-right: 0;
+  }
+  .logo {
+    max-width: 70%;
+  }
 }
 
 /* accolades accent { } reprises de la DA du portfolio */

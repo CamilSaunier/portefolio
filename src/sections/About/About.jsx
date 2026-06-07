@@ -45,6 +45,19 @@ const CVS = [
   },
 ];
 
+// rend un texte avec des mots-clés marqués **ainsi** en accent (<strong>)
+function highlight(text) {
+  return text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className={styles.hl}>
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function About() {
   const { t, i18n } = useTranslation();
   const { theme } = useTheme();
@@ -64,7 +77,7 @@ export default function About() {
 
         <Reveal className={styles.text}>
           {["p1", "p2", "p3"].map((k) => (
-            <p key={k}>{t(`about.${k}`)}</p>
+            <p key={k}>{highlight(t(`about.${k}`))}</p>
           ))}
         </Reveal>
 

@@ -44,32 +44,99 @@
 
 /* Plus de carte colorée : la photo détourée s'intègre directement au Hero.
    Un halo accent diffus derrière garde le lien avec la DA, sans cadre. */
-.frame {
+/* ---- Carte "code" (remplace la photo) ---- */
+.codeCard {
   position: relative;
-  width: min(360px, 80vw);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  width: min(420px, 92vw);
+  max-width: 100%;
+  min-width: 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: 0 24px 60px var(--shadow-strong);
+  overflow: hidden;
+  font-family: var(--font-mono);
 }
 
-/* halo accent doux derrière la silhouette (pas de cadre rectangulaire) */
-.frame::after {
+/* halo accent doux derrière la carte */
+.codeCard::after {
   content: "";
   position: absolute;
-  inset: 8% 0 0;
+  inset: 0;
   z-index: -1;
-  background: radial-gradient(circle at 50% 45%, var(--accent-soft), transparent 68%);
-  filter: blur(8px);
+  background: radial-gradient(circle at 70% 30%, var(--accent-soft), transparent 70%);
+  filter: blur(10px);
 }
 
-.frame img {
-  position: relative;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  /* le bas du buste se fond dans le Hero (plus de coupe nette) */
-  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+/* barre de fenêtre : pastilles + nom de fichier */
+.codeBar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--glass-border);
+}
+.winDot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.dotRed { background: #ff5f57; }
+.dotYellow { background: #febc2e; }
+/* le point vert pulse -> rappel discret du statut "open to work" */
+.dotGreen {
+  background: #28c840;
+  animation: traffic-pulse 2s infinite;
+}
+@keyframes traffic-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(40, 200, 64, 0.6); }
+  70% { box-shadow: 0 0 0 6px rgba(40, 200, 64, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(40, 200, 64, 0); }
+}
+.codeFile {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* bloc de code + coloration syntaxique (couleurs adaptées au thème) */
+.code {
+  margin: 0;
+  padding: 20px 22px;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre;
+  overflow-x: hidden;
+  --c-kw: #c026d3;
+  --c-str: #16a34a;
+  --c-bool: #ea580c;
+}
+:global([data-theme="dark"]) .code {
+  --c-kw: #f0abfc;
+  --c-str: #4ade80;
+  --c-bool: #fbbf24;
+}
+.kw { color: var(--c-kw); }
+.var { color: var(--accent); font-weight: 600; }
+.prop { color: var(--text); }
+.str { color: var(--c-str); }
+.bool { color: var(--c-bool); }
+
+/* curseur clignotant pour l'effet "vivant" (carte code) */
+.codeCursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: -2px;
+  background: var(--accent);
+  animation: code-blink 1.1s step-end infinite;
+}
+@keyframes code-blink {
+  50% { opacity: 0; }
 }
 
 .badge {
@@ -190,14 +257,21 @@
   transition: transform 0.15s ease, background var(--transition), border-color var(--transition), color var(--transition);
 }
 
+/* accent franc mais "liquid glass" : légèrement translucide (la lava transparaît),
+   liseré de lumière interne en haut + lueur accent */
 .primary {
-  background: var(--accent);
   color: #fff;
+  background: color-mix(in srgb, var(--accent) 85%, transparent);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, #fff 25%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 10px 30px var(--accent-soft);
 }
 
 .primary:hover {
-  background: var(--accent-hover);
+  background: color-mix(in srgb, var(--accent-hover) 88%, transparent);
   transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 14px 36px var(--accent-soft);
 }
 
 .secondary {
@@ -285,8 +359,14 @@
     margin-inline: auto;
   }
 
-  .frame {
-    width: min(240px, 60vw);
+  .codeCard {
+    width: min(420px, 100%);
+  }
+  /* sur petit écran : le code revient à la ligne au lieu d'être coupé à droite */
+  .code {
+    font-size: 0.82rem;
+    padding: 18px 16px;
+    white-space: pre-wrap;
   }
 }
 

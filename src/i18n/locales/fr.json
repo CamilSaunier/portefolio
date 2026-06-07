@@ -25,11 +25,11 @@
   "about": {
     "title": "À propos",
     "lead": "Développeur full stack issu d'une reconversion, porté par la curiosité et le goût du travail d'équipe.",
-    "p1": "Avant le code, j'ai passé près de 6 ans comme technicien d'exploitation sur des réseaux fibre FTTH/FTTB — dépannage, pannes générales et astreintes 24/7 — dans un univers où la rigueur, l'autonomie et la gestion des situations critiques sont la norme.",
-    "p2": "Avant cela, deux ans de travail en Australie et trois ans dans le milieu associatif (DEJEPS en parallèle) m'ont appris à m'adapter vite et à collaborer avec des profils très variés.",
-    "p3": "En 2024-2025, je me suis reconverti en obtenant le titre Développeur Web et Web Mobile (DWWM), puis j'ai enchaîné deux stages où j'ai livré des fonctionnalités concrètes. J'aime travailler avec les autres, apprendre et évoluer : je cherche aujourd'hui une équipe où mettre cette énergie au service de projets ambitieux.",
-    "cvFr": "CV en français",
-    "cvEn": "CV en anglais",
+    "p1": "Avant le code, j'ai passé près de **6 ans** comme technicien d'exploitation sur des réseaux fibre **FTTH/FTTB** — dépannage, pannes générales et astreintes 24/7 — dans un univers où la **rigueur**, l'**autonomie** et la gestion des situations critiques sont la norme.",
+    "p2": "Avant cela, deux ans de travail en **Australie** et trois ans dans le milieu associatif (**DEJEPS** en parallèle) m'ont appris à **m'adapter vite** et à collaborer avec des profils très variés.",
+    "p3": "En 2024-2025, je me suis reconverti en obtenant le titre **Développeur Web et Web Mobile (DWWM)**, puis j'ai enchaîné deux stages où j'ai livré des fonctionnalités concrètes. J'aime travailler avec les autres, apprendre et évoluer : je cherche aujourd'hui une équipe où mettre cette énergie au service de **projets ambitieux**.",
+    "cvFr": "CV français",
+    "cvEn": "CV anglais",
     "cvSoon": "bientôt",
     "preview": "Aperçu du CV",
     "download": "Télécharger le PDF",
@@ -53,7 +53,7 @@
     "items": {
       "semantik": {
         "role": "Développeur Full Stack — Stage",
-        "company": "Semantik Match",
+        "company": "Semantikmatch",
         "period": "Déc. 2025 – Juil. 2026 · 6 mois",
         "description": "Plateforme HR-Tech de mise en relation candidats / programmes grandes écoles. Refonte graphique complète du front, ajout d'outils IA (pré-filtrage des candidatures, autofill de profil) et développement d'APIs type-safe en Node.js/TSOA. Jobs asynchrones avec BullMQ/Redis, environnements gérés via Docker."
       },
@@ -121,7 +121,7 @@
     },
     "items": {
       "one": {
-        "title": "Plateforme Semantik Match",
+        "title": "Semantikmatch",
         "description": "Refonte UI/UX de la plateforme de candidatures, fonctionnalité d'autofill de profil et pré-filtrage des candidats par IA. APIs type-safe Node.js/TSOA et files de jobs BullMQ/Redis.",
         "tags": ["React", "Node.js", "TSOA", "IA"],
         "details": {
@@ -137,7 +137,7 @@
       "two": {
         "title": "Portail interne Moustache Bikes",
         "description": "Outil de gestion interne (clients, magasins, vendeurs, produits) refondu en React, avec tableaux de bord et statistiques temps réel pour les responsables du réseau de revendeurs.",
-        "tags": ["React", "TypeScript", "ERP"],
+        "tags": ["React", "TypeScript", "ERP", "Data Viz"],
         "details": {
           "intro": "Stage chez Moustache Bikes, fabricant de vélos électriques premium. Refonte d'un outil interne de gestion du réseau de revendeurs, en React et TypeScript sur un back-end existant.",
           "features": [
@@ -170,7 +170,8 @@
     "cta": "M'envoyer un email",
     "socials": "Retrouvez-moi aussi sur",
     "location": "France · ouvert aux opportunités",
-    "languages": "Français (natif) · Anglais (professionnel)"
+    "languages": "Français (natif) · Anglais (professionnel)",
+    "thanks": "Merci d'avoir parcouru mon portfolio jusqu'ici — au plaisir d'échanger !"
   },
   "footer": {
     "rights": "Tous droits réservés.",

@@ -112,7 +112,10 @@ export default function Skills() {
             >
               {t("skills.soft")}
             </button>
-            <span className={styles.toggleThumb} data-mode={mode} aria-hidden="true" />
+            {/* goutte : .toggleThumb déplace, .toggleDrop (remontée par key) se déforme */}
+            <span className={styles.toggleThumb} data-mode={mode} aria-hidden="true">
+              <span key={mode} className={styles.toggleDrop} />
+            </span>
           </div>
         </Reveal>
 

@@ -58,14 +58,31 @@ export default function Hero() {
         </div>
 
         <div className={styles.portrait}>
-          <div className={styles.frame}>
-            <img
-              src="/PHOTO_PROFIL-removebg-preview.png"
-              alt={t("hero.name")}
-              width="383"
-              height="368"
-              fetchPriority="high"
-            />
+          {/* carte "code" décorative (un objet JS qui me décrit) ; aria-hidden
+              car l'info utile est déjà dans le texte du Hero */}
+          <div className={styles.codeCard} aria-hidden="true">
+            <div className={styles.codeBar}>
+              <span className={`${styles.winDot} ${styles.dotRed}`} />
+              <span className={`${styles.winDot} ${styles.dotYellow}`} />
+              <span className={`${styles.winDot} ${styles.dotGreen}`} />
+              <span className={styles.codeFile}>camil.js</span>
+            </div>
+            <pre className={styles.code}>
+              <span className={styles.kw}>const</span>{" "}
+              <span className={styles.var}>camil</span> = {"{"}
+              {"\n  "}
+              <span className={styles.prop}>role</span>:{" "}
+              <span className={styles.str}>"Full Stack Developer"</span>,{"\n  "}
+              <span className={styles.prop}>stack</span>: [
+              <span className={styles.str}>"React"</span>,{" "}
+              <span className={styles.str}>"Node.js"</span>,{" "}
+              <span className={styles.str}>"TypeScript"</span>],{"\n  "}
+              <span className={styles.prop}>location</span>:{" "}
+              <span className={styles.str}>"France"</span>,{"\n  "}
+              <span className={styles.prop}>openToWork</span>:{" "}
+              <span className={styles.bool}>true</span>,{"\n"}
+              {"}"};<span className={styles.codeCursor} />
+            </pre>
           </div>
         </div>
       </div>

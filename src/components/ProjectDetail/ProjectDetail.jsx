@@ -12,7 +12,7 @@ import styles from "./ProjectDetail.module.css";
  * - `features` : liste des fonctionnalités produites
  * - `stack` : { backend: [{name, Icon?}], frontend: [{name, Icon?}] } (optionnel)
  */
-export default function ProjectDetail({ title, intro, features = [], stack, onClose }) {
+export default function ProjectDetail({ title, logo, mono, intro, features = [], stack, onClose }) {
   const { t } = useTranslation();
   const overlayRef = useRef(null);
 
@@ -75,11 +75,22 @@ export default function ProjectDetail({ title, intro, features = [], stack, onCl
           </svg>
         </button>
 
-        <h3 id="project-detail-title" className={styles.title}>
-          <span className={styles.brace} aria-hidden="true">{"{ "}</span>
-          {title}
-          <span className={styles.brace} aria-hidden="true">{" }"}</span>
-        </h3>
+        {/* en-tête : logo à côté du titre (desktop/tablette), au-dessus et centré (mobile) */}
+        <div className={styles.head}>
+          {logo && (
+            <img
+              src={logo}
+              alt=""
+              aria-hidden="true"
+              className={`${styles.logo} ${mono ? styles.logoMono : ""}`}
+            />
+          )}
+          <h3 id="project-detail-title" className={styles.title}>
+            <span className={styles.brace} aria-hidden="true">{"{ "}</span>
+            {title}
+            <span className={styles.brace} aria-hidden="true">{" }"}</span>
+          </h3>
+        </div>
 
         {intro && <p className={styles.intro}>{intro}</p>}
 
