@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 100%; height: 100%; overflow: hidden; }
+
+      /* base sombre + taches colorees floutees (matiere a "refracter") */
+      body {
+        position: relative;
+        background: #150f2e;
+        font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      }
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(70px);
+      }
+      .b1 { width: 320px; height: 320px; top: -70px; left: -70px; background: #6366f1; }
+      .b2 { width: 300px; height: 300px; bottom: -90px; right: -60px; background: #a855f7; }
+      .b3 { width: 240px; height: 240px; bottom: -40px; left: 40px; background: #fb923c; opacity: 0.85; }
+      .b4 { width: 220px; height: 220px; top: -30px; right: 30px; background: #8b5cf6; }
+
+      /* dalle de verre depoli plein bord (iOS applique son propre masque arrondi) */
+      .glass {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(34px) saturate(180%);
+        -webkit-backdrop-filter: blur(34px) saturate(180%);
+        /* liseré de bord : highlight clair en haut, ombre en bas -> volume du verre */
+        box-shadow:
+          inset 0 3px 0 rgba(255, 255, 255, 0.45),
+          inset 0 -3px 0 rgba(0, 0, 0, 0.18),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+      }
+
+      /* reflet spéculaire diagonal (gloss "liquid glass") */
+      .glass::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.42) 0%,
+          rgba(255, 255, 255, 0.10) 26%,
+          rgba(255, 255, 255, 0) 50%
+        );
+      }
+
+      /* monogramme { CS } sur le verre */
+      .mark {
+        position: relative;
+        z-index: 1;
+        font-size: 168px;
+        font-weight: 800;
+        letter-spacing: -6px;
+        color: #ffffff;
+        text-shadow: 0 6px 26px rgba(0, 0, 0, 0.28);
+      }
+      .mark .brace { opacity: 0.5; }
+    </style>
+  </head>
+  <body>
+    <div class="blob b1"></div>
+    <div class="blob b4"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+
+    <div class="glass">
+      <span class="mark"><span class="brace">{</span>CS<span class="brace">}</span></span>
+    </div>
+  </body>
+</html>
