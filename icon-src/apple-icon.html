@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: 100%; height: 100%; overflow: hidden; }
+      /* dimensions en pixels explicites : la capture headless remplit alors
+         tout le cadre (height:100%/100vh laissait une bande blanche en bas). */
+      html, body { width: 512px; height: 512px; overflow: hidden; }
 
-      /* base sombre + taches colorees floutees (matiere a "refracter") */
+      /* dégradé plein cadre + taches floutées par-dessus */
       body {
         position: relative;
-        background: #150f2e;
+        background: linear-gradient(150deg, #6366f1 0%, #8b5cf6 55%, #7c3aed 100%);
         font-family: "Segoe UI", Helvetica, Arial, sans-serif;
       }
       .blob {
