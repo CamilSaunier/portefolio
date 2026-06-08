@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Camil Saunier — Développeur Full Stack",
-    "description": "Portfolio de Camil Saunier — Développeur Full Stack (React, Node.js). Reconverti, ex-télécoms. Projets, parcours et compétences."
+    "description": "Portfolio de Camil Saunier — Développeur Full Stack (React, Node.js, TypeScript). Projets, parcours et compétences."
   },
   "nav": {
     "home": "Accueil",
@@ -163,7 +163,6 @@
     }
   },
   "contact": {
-    "status": "Ouvert au recrutement",
     "title": "Travaillons ensemble",
     "subtitle": "Une opportunité, une question, ou simplement envie d'échanger ? Je réponds avec plaisir.",
     "emailLabel": "Email",

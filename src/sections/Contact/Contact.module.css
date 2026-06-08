@@ -60,34 +60,6 @@
   11.01%, 100% { transform: translateX(420%) rotate(18deg); opacity: 0; }
 }
 
-/* badge de statut avec point pulsé */
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--accent);
-  background: var(--accent-soft);
-  margin-bottom: 22px;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  animation: contact-pulse 2s infinite;
-}
-
-@keyframes contact-pulse {
-  0% { box-shadow: 0 0 0 0 var(--accent-soft); }
-  70% { box-shadow: 0 0 0 7px transparent; }
-  100% { box-shadow: 0 0 0 0 transparent; }
-}
-
 .title {
   font-size: clamp(1.6rem, 4vw, 2.1rem);
   margin-bottom: 14px;

@@ -28,11 +28,6 @@ export default function Contact() {
     <section id="contact" className="section" aria-labelledby="contact-title">
       <div className="container">
         <Reveal className={styles.card}>
-          <span className={styles.status}>
-            <span className={styles.dot} aria-hidden="true" />
-            {t("contact.status")}
-          </span>
-
           <h2 id="contact-title" className={styles.title}>
             <span className={styles.brace} aria-hidden="true">{"{ "}</span>
             {t("contact.title")}

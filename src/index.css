@@ -200,6 +200,14 @@ h3 {
   outline-offset: 2px;
 }
 
+/* écrans tactiles (téléphone/tablette) : pas de clavier -> le skip link
+   est inutile (et peut s'afficher cassé au tap), on le retire. */
+@media (hover: none) and (pointer: coarse) {
+  .skip-link {
+    display: none;
+  }
+}
+
 /* ============================================================
    Transition de thème : révélation en cercle (View Transitions API)
    Le nouveau thème se découvre depuis le bouton de bascule.
