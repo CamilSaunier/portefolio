@@ -175,6 +175,11 @@
     "copy": "Copy address",
     "copied": "Copied!"
   },
+  "notFound": {
+    "title": "Page not found",
+    "lead": "This page doesn't exist (or no longer does). Let's get you back on track.",
+    "home": "Back home"
+  },
   "footer": {
     "rights": "All rights reserved.",
     "builtWith": "Designed and built with React, no UI framework"

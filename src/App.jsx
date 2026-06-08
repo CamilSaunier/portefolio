@@ -9,8 +9,13 @@ import Experience from "./sections/Experience/Experience";
 import Skills from "./sections/Skills/Skills";
 import Projects from "./sections/Projects/Projects";
 import Contact from "./sections/Contact/Contact";
+import NotFound from "./sections/NotFound/NotFound";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
+
+// soft 404 : toute URL hors racine affiche la vue NotFound (dans la coquille du site)
+const path = typeof window !== "undefined" ? window.location.pathname : "/";
+const isNotFound = path !== "/" && path !== "/index.html";
 
 export default function App() {
   const { t, i18n } = useTranslation();
@@ -44,19 +49,25 @@ export default function App() {
       <a href="#main-content" className="skip-link">
         {t("a11y.skip")}
       </a>
-      <ScrollProgress />
+      {!isNotFound && <ScrollProgress />}
       <Background />
-      <Navbar />
-      <main id="main-content" ref={mainRef}>
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
+      {!isNotFound && <Navbar />}
+      {isNotFound ? (
+        <main id="main-content">
+          <NotFound />
+        </main>
+      ) : (
+        <main id="main-content" ref={mainRef}>
+          <Hero />
+          <About />
+          <Experience />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+      )}
       <Footer />
-      <ScrollToTop />
+      {!isNotFound && <ScrollToTop />}
     </>
   );
 }

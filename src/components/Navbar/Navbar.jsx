@@ -74,8 +74,8 @@ export default function Navbar() {
 
   return (
     <>
-      {/* logo flottant en haut à gauche */}
-      <a href="#hero" className={styles.logo} aria-label="Camil Saunier">
+      {/* logo flottant en haut à gauche (lien absolu -> marche aussi depuis la 404) */}
+      <a href="/#hero" className={styles.logo} aria-label="Camil Saunier">
         <span className={styles.logoMark}>{"{"}</span>
         <span className={styles.logoName}>CS</span>
         <span className={styles.logoMark}>{"}"}</span>
@@ -94,7 +94,7 @@ export default function Navbar() {
           return (
             <a
               key={id}
-              href={`#${id}`}
+              href={`/#${id}`}
               className={`${styles.item} ${active === id ? styles.active : ""}`}
               aria-label={label}
               title={label}
