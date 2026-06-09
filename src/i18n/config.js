@@ -14,7 +14,9 @@ i18n
       fr: { translation: fr },
       en: { translation: en },
     },
-    fallbackLng: "fr",
+    // anglais par défaut (cible prioritaire NZ/AU) ; un visiteur FR est
+    // quand même servi en français via la détection navigator ci-dessous.
+    fallbackLng: "en",
     supportedLngs: ["fr", "en"],
     interpolation: {
       escapeValue: false, // React échappe déjà le XSS
