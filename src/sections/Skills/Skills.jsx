@@ -17,16 +17,9 @@ import {
   SiGithub,
   SiVite,
   SiSwagger,
+  SiPython,
 } from "react-icons/si";
-import {
-  TbBrandVscode,
-  TbBulb,
-  TbCompass,
-  TbShieldCheck,
-  TbMessageDots,
-  TbUsers,
-  TbArrowsShuffle,
-} from "react-icons/tb";
+import { TbBrandVscode, TbBulb, TbCompass, TbShieldCheck, TbMessageDots, TbUsers, TbArrowsShuffle } from "react-icons/tb";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import Reveal from "../../components/Reveal/Reveal";
 import styles from "./Skills.module.css";
@@ -53,6 +46,7 @@ const HARD = [
       { name: "Prisma", Icon: SiPrisma },
       { name: "Redis", Icon: SiRedis },
       { name: "Docker", Icon: SiDocker },
+      { name: "Python", Icon: SiPython },
     ],
   },
   {
@@ -84,12 +78,7 @@ export default function Skills() {
   return (
     <section id="skills" className="section" aria-labelledby="skills-title">
       <div className="container">
-        <SectionHeading
-          eyebrow="03"
-          titleId="skills-title"
-          title={t("skills.title")}
-          subtitle={t("skills.subtitle")}
-        />
+        <SectionHeading eyebrow="03" titleId="skills-title" title={t("skills.title")} subtitle={t("skills.subtitle")} />
 
         {/* Toggle Hard / Soft */}
         <Reveal>
@@ -129,11 +118,7 @@ export default function Skills() {
                     <h3 className={styles.cardTitle}>{t(`skills.categories.${group.category}`)}</h3>
                     <ul className={styles.items}>
                       {group.items.map(({ name, Icon }, idx) => (
-                        <li
-                          key={name}
-                          className={styles.item}
-                          style={{ animationDelay: `${idx * 45}ms` }}
-                        >
+                        <li key={name} className={styles.item} style={{ animationDelay: `${idx * 45}ms` }}>
                           <Icon className={styles.icon} aria-hidden="true" />
                           <span className={styles.name}>{name}</span>
                         </li>
@@ -145,11 +130,7 @@ export default function Skills() {
             ) : (
               <ul className={styles.softGrid}>
                 {SOFT.map(({ key, Icon }, idx) => (
-                  <li
-                    key={key}
-                    className={styles.softItem}
-                    style={{ animationDelay: `${idx * 45}ms` }}
-                  >
+                  <li key={key} className={styles.softItem} style={{ animationDelay: `${idx * 45}ms` }}>
                     <Icon className={styles.softIcon} aria-hidden="true" />
                     <span className={styles.softLabel}>{t(`skills.softItems.${key}`)}</span>
                   </li>
